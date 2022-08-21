@@ -39,6 +39,7 @@ router.post('/addSighting', async function (req, res) {
   const {
     country,
     location,
+    place,
     date,
     time,
     latitud,
@@ -57,6 +58,7 @@ router.post('/addSighting', async function (req, res) {
     const newSighting = new Sighting({
         country,
         location,
+        place,
         date,
         time,
         latitud,

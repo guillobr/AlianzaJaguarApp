@@ -20,7 +20,7 @@ export default function Home(){
     const dispatch = useDispatch()
     const allSighting = useSelector((state) => state.sighting)
     const usuarios= useSelector(state=> state.users)
-    console.log('usuarios:',usuarios)
+  
     const {isAuthenticated} = useAuth0()
 
 

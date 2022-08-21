@@ -16,13 +16,20 @@ import { getSighting , postUser , getUsers} from './actions'
 import Home from './Components/Home'
 import Avistaje from './Components/Avistaje';
 import NavBar from './Components/NavBar';
+import ProtectedRoute from './Components/ProtectedRoute';
 //import LandingPage from './Components/LandingPage'
 
 //import LogInButton from './Components/LogIn'
 //import AddQuote from './Components/Admin/Add/AddQuote'
 //import Profile from './Components/User/Profile'
-//import { useAuth0 } from '@auth0/auth0-react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { Admin } from './Components/Admin/Admin'
+import SightingDetails from './Components/Admin/Avistaje/SightingDetails';
+
+import SightingData from './Components/Admin/Avistaje/SightingData';
+import TrafficData from './Components/Admin/Traffic/TrafficData';
+
+
 // import Add from './Components/Admin/Add/Add'
 // import Put from './Components/Admin/User/Users'
 // import Delete from './Components/Admin/Delete/Delete'
@@ -30,6 +37,26 @@ import { Admin } from './Components/Admin/Admin'
 // import AddAuthor from './Components/Admin/Add/AddAuthor'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  const { user } = useAuth0()
+  console.log('user',user)
+
+  const usuario = useSelector((state) => state.userLogged)
+  console.log('uu',usuario)
+
+  useEffect(() => {
+    if (user) {
+      dispatch(postUser(user))
+    }
+  }, [user])
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [dispatch])
+
+
   return (
     <BrowserRouter>
     <NavBar/>
@@ -37,8 +64,53 @@ function App() {
         <Route>
          <Route path='/' element={<Home />} />
          <Route path='/avistaje' element={<Avistaje />} />
-         <Route path='/admin' element={<Admin />} />
         </Route>
+        <Route
+            path='/admin'
+            element={
+              <ProtectedRoute
+                redirectPath='/'
+                isAllowed={usuario.length === 1 && usuario[0].isSuperAdmin === true}
+              >
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/sightingData'
+            element={
+              <ProtectedRoute
+                redirectPath='/'
+                isAllowed={usuario.length === 1 && usuario[0].isSuperAdmin === true}
+              >
+                <SightingData/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/trafficData'
+            element={
+              <ProtectedRoute
+                redirectPath='/'
+                isAllowed={usuario.length === 1 && usuario[0].isSuperAdmin === true}
+              >
+                <TrafficData />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/sightingID/:id'
+            element={
+              <ProtectedRoute
+                redirectPath='/'
+                isAllowed={
+                  usuario.length === 1 && usuario[0].isSuperAdmin === true
+                }
+              >
+                <SightingDetails />
+              </ProtectedRoute>
+            }
+          />
       </Routes>
     </BrowserRouter>
   );

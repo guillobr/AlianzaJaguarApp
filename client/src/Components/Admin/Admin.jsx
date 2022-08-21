@@ -24,54 +24,12 @@ export function Admin() {
   return (
     <div>
       <div>
-        Amin
-        {/* {usuario[0].isAdminData === true ? (
-          <Link to='/add'>
-            <button className={styles.btn}>Agregar Data</button>
-          </Link>
-        ) : (
-          ''
-        )} */}
-        {/* <Link to='/add'>
-            <button className={styles.btn}>Agregar</button>
-        </Link> */}
-
-        {/* {usuario[0].isAdminData === true ? (
-          <Link to='/put'>
-            <button className={styles.btn}>Modificar Data</button>
-          </Link>
-        ) : (
-          ''
-        )} */}
-        {/* <Link to='/put'>
-            <button className={styles.btn}>Modificar</button>
-        </Link> */}
-
-        {/* {usuario[0].isAdminData === true ? (
-          <Link to='/delete'>
-            <button className={styles.btn}>Borrar/Ocultar Data</button>
-          </Link>
-        ) : (
-          ''
-        )} */}
-        {/* <Link to='/delete'>
-            <button className={styles.btn}>Borrar/Ocultar</button>
-        </Link> */}
-
-
-
-        {/* <Link to='/adminusers'>
-          <button className={styles.btn}>Usuarios</button>
-        </Link> */}
-
-        {/* {usuario[0].isAdminUsers === true ? (
-          <Link to='/adminusers2'>
-            <button className={styles.btn}>Usuarios</button>
-          </Link>
-        ) : (
-          ''
-        )} */}
-
+        <Link to='/sightingData'>
+            <button>Avistaje</button>
+        </Link> 
+        <Link to='/trafficData'>
+            <button>Trafico</button>
+        </Link> 
 
       </div>
     </div>

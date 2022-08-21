@@ -35,33 +35,47 @@ import axios from 'axios'
     }
   }
 
+  export function deleteSighting(id) {
+    return async function (dispatch) {
+      const json = await axios.delete(
+        `http://localhost:3001/sighting/deleteSighting/${id}`
+      )
+      return dispatch({
+        type: 'DELETE_SIGHTING',
+      })
+    }
+  }
+  
+
  
 
 
 
 //USER
-  // export function getUsers() {
-  //   return async function (dispatch) {
-  //     const json = await axios.get('http://localhost:3001/users/')
-  //     return dispatch({
-  //       type: 'GET_USERS',
-  //       payload: json.data,
-  //     })
-  //   }
-  // }
+  export function getUsers() {
+    return async function (dispatch) {
+      const json = await axios.get('http://localhost:3001/user/')
+      return dispatch({
+        type: 'GET_USERS',
+        payload: json.data,
+      })
+    }
+  }
   
-  // export function postUser(payload) {
-  //   return async function (dispatch) {
-  //     const json = await axios.post(
-  //       'http://localhost:3001/users/addUser',
-  //       payload
-  //     )
-  //     return dispatch({
-  //       type: 'POST_USER',
-  //       payload: json.data,
-  //     })
-  //   }
-  // }
+  export function postUser(payload) {
+    console.log('soy posttt:',payload)
+    return async function (dispatch) {
+      const json = await axios.post(
+        'http://localhost:3001/user/addUser',
+        payload
+      )
+      console.log('action del post:',payload)
+      return dispatch({
+        type: 'POST_USER',
+        payload: json.data,
+      })
+    }
+  }
   
 
   //ADMIN
