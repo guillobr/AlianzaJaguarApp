@@ -15,13 +15,14 @@ import { useEffect } from 'react'
 import { getSighting , postUser , getUsers} from './actions'
 import Home from './Components/Home'
 import Avistaje from './Components/Avistaje';
+import NavBar from './Components/NavBar';
 //import LandingPage from './Components/LandingPage'
-//import NavBar from './Components/NavBar'
+
 //import LogInButton from './Components/LogIn'
 //import AddQuote from './Components/Admin/Add/AddQuote'
 //import Profile from './Components/User/Profile'
 //import { useAuth0 } from '@auth0/auth0-react'
-//import { Admin } from './Components/Admin/Admin'
+import { Admin } from './Components/Admin/Admin'
 // import Add from './Components/Admin/Add/Add'
 // import Put from './Components/Admin/User/Users'
 // import Delete from './Components/Admin/Delete/Delete'
@@ -31,10 +32,12 @@ import Avistaje from './Components/Avistaje';
 function App() {
   return (
     <BrowserRouter>
+    <NavBar/>
      <Routes>
         <Route>
          <Route path='/' element={<Home />} />
          <Route path='/avistaje' element={<Avistaje />} />
+         <Route path='/admin' element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>

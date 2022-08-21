@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import styles from '../../Styles/admin.module.css'
+//import styles from '../../Styles/admin.module.css'
 import { getAdminQuotes } from '../../actions'
 import { useDispatch, useSelector } from 'react-redux'
 //import { animateScroll as scroll, Element } from 'react-scroll'
@@ -16,14 +16,15 @@ export function Admin() {
   //   dispatch(get(getAdminQuotes))
   // })
 
- 
+
 //   useEffect(() => {
 //     scroll.scrollToTop()
 //   }, [])
 
   return (
-    <div className={styles.admin}>
-      <div className={styles.containerAdmin}>
+    <div>
+      <div>
+        Amin
         {/* {usuario[0].isAdminData === true ? (
           <Link to='/add'>
             <button className={styles.btn}>Agregar Data</button>
@@ -31,9 +32,9 @@ export function Admin() {
         ) : (
           ''
         )} */}
-        <Link to='/add'>
+        {/* <Link to='/add'>
             <button className={styles.btn}>Agregar</button>
-        </Link>
+        </Link> */}
 
         {/* {usuario[0].isAdminData === true ? (
           <Link to='/put'>
@@ -42,9 +43,9 @@ export function Admin() {
         ) : (
           ''
         )} */}
-        <Link to='/put'>
+        {/* <Link to='/put'>
             <button className={styles.btn}>Modificar</button>
-        </Link>
+        </Link> */}
 
         {/* {usuario[0].isAdminData === true ? (
           <Link to='/delete'>
@@ -53,15 +54,15 @@ export function Admin() {
         ) : (
           ''
         )} */}
-        <Link to='/delete'>
+        {/* <Link to='/delete'>
             <button className={styles.btn}>Borrar/Ocultar</button>
-        </Link>
+        </Link> */}
 
-       
 
-        <Link to='/adminusers'>
+
+        {/* <Link to='/adminusers'>
           <button className={styles.btn}>Usuarios</button>
-        </Link>
+        </Link> */}
 
         {/* {usuario[0].isAdminUsers === true ? (
           <Link to='/adminusers2'>
@@ -71,7 +72,7 @@ export function Admin() {
           ''
         )} */}
 
-       
+
       </div>
     </div>
   )

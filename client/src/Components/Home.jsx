@@ -7,6 +7,11 @@ import { getSighting } from '../actions'
 //import Paginado from './Paginado'
 import styles from "../Styles/home.module.css"
 import { Link } from 'react-router-dom'
+import LogInButton from './LogIn'
+import LogOutButton from './LogOut'
+import Profile from './User/Profile'
+import { useAuth0 } from "@auth0/auth0-react";
+import { Admin } from './Admin/Admin'
 
 
 
@@ -16,6 +21,7 @@ export default function Home(){
     const allSighting = useSelector((state) => state.sighting)
     const usuarios= useSelector(state=> state.users)
     console.log('usuarios:',usuarios)
+    const {isAuthenticated} = useAuth0()
 
 
     // const [currentPage, setCurrentPage] = useState(1)
@@ -46,7 +52,11 @@ function handleAvistaje(){
             </Link>
           
            <p>TRAFICO</p>
+
+          
+
           </header>
+          
         </div>
       );
     
