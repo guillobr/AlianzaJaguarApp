@@ -47,6 +47,68 @@ import axios from 'axios'
   }
   
 
+  export function getSightingCountry(payload) {
+    return {
+      type: 'GET_SIGHTING_COUNTRY',
+      payload: payload,
+    }
+  }
+
+  export function getSightingPlace(payload) {
+    return {
+      type: 'GET_SIGHTING_PLACE',
+      payload: payload,
+    }
+  }
+
+  export function getSightingDate(payload) {
+    return {
+      type: 'GET_SIGHTING_DATE',
+      payload: payload,
+    }
+  }
+
+  export function getSightingTime(payload) {
+    console.log('TIIME',payload)
+    return {
+      type: 'GET_SIGHTING_TIME',
+      payload: payload,
+    }
+  }
+
+  export function getSightingName(payload) {
+    return {
+      type: 'GET_SIGHTING_NAME',
+      payload: payload,
+    }
+  }
+
+  export function getSightingScientificName(payload) {
+    return {
+      type: 'GET_SIGHTING_SCIENTIFICNAME',
+      payload: payload,
+    }
+  }
+
+  export function getSightingType(payload) {
+    return {
+      type: 'GET_SIGHTING_TYPE',
+      payload: payload,
+    }
+  }
+
+  export function getSightingObservador(payload) {
+    return {
+      type: 'GET_SIGHTING_OBSERVADOR',
+      payload: payload,
+    }
+  }
+
+  
+
+  
+  
+
  
 
 
