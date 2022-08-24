@@ -28,6 +28,8 @@ import SightingDetails from './Components/Admin/Avistaje/SightingDetails';
 
 import SightingData from './Components/Admin/Avistaje/SightingData';
 import TrafficData from './Components/Admin/Traffic/TrafficData';
+import PutSighting from './Components/Admin/Avistaje/PutSighting';
+
 
 
 // import Add from './Components/Admin/Add/Add'
@@ -108,6 +110,19 @@ function App() {
                 }
               >
                 <SightingDetails />
+              </ProtectedRoute>
+            }
+          />
+           <Route
+            path='/putSighting/:id'
+            element={
+              <ProtectedRoute
+                redirectPath='/'
+                isAllowed={
+                  usuario.length === 1 && usuario[0].isSuperAdmin === true
+                }
+              >
+                <PutSighting />
               </ProtectedRoute>
             }
           />

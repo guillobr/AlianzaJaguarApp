@@ -86,8 +86,9 @@ router.post('/addSighting', async function (req, res) {
 
 
 //PUT 
-router.put('/update/:id', async (req, res) => {
+router.post('/update/:id', async (req, res) => {
   const { id } = req.params
+  
   try {
     if (Object.keys(req.body).length === 0) throw new Error('Send propertys')
     const sighting = await Sighting.findByIdAndUpdate(id, req.body, { new: 1 })

@@ -26,7 +26,7 @@ export default function SightingData(props) {
 
 
   const sightings = useSelector((state) => state.sighting)
-  console.log('all:',sightings)
+  
 
 
   useEffect(() => {
@@ -45,6 +45,60 @@ export default function SightingData(props) {
     dispatch(getSightingDate(e.target.value))
     setOrder(`Ordenado ${e.target.value}`)
   }
+
+  //------------PAGINADO
+  const [currentPage, setCurrentPage] = useState(1)
+  const [rows, setRows] = useState(10)
+  const [pageNumberLimit, setPageNumberLimit] = useState(5)
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
+  const [minPageNumberLmit, setMinPageNumberLmit] = useState(0)
+
+  const handleClick = (event) => {
+    setCurrentPage(Number(event.target.id))
+  }
+  const handleNextbtn = () => {
+    setCurrentPage(currentPage + 1)
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit)
+      setMinPageNumberLmit(minPageNumberLmit + pageNumberLimit)
+    }
+  }
+  const handlePrevbtn = () => {
+    setCurrentPage(currentPage - 1)
+    if ((currentPage - 1) % pageNumberLimit === 0) {
+      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit)
+      setMinPageNumberLmit(minPageNumberLmit - pageNumberLimit)
+    }
+  }
+
+  const pages = []
+  for (let i = 1; i <= Math.ceil(sightings.length / rows); i++) {
+    pages.push(i)
+  }
+  const indexOfLastItem = currentPage * rows
+  const indexOfFirstItem = indexOfLastItem - rows
+  const currentItems = sightings.slice(indexOfFirstItem, indexOfLastItem)
+  const renderPageNumbers = pages.map((number) => {
+    if (number < maxPageNumberLimit + 1 && number > minPageNumberLmit) {
+      return (
+        <li
+          key={number}
+          id={number}
+          onClick={(e) => handleClick(e)}
+          // className={
+          //   currentPage === number
+          //     ? styles.paginationBulletActive
+          //     : styles.paginationBullet
+          // }
+        >
+          {number}
+        </li>
+      )
+    } else {
+      return null
+    }
+  })
+  //-------------------------------------------------------------------
 
 
   return sightings.length > 0 ? (
@@ -79,7 +133,7 @@ export default function SightingData(props) {
           </thead>
 
           <tbody>
-            {sightings.map((s) => (
+            {currentItems.map((s) => (
               <tr key={s._id}>
                 <td>
                   <Link to={`/sightingID/${s._id}`}>
@@ -102,6 +156,29 @@ export default function SightingData(props) {
           </tbody>
         </table>
       </div>
+      {
+          <ul>
+            <li>
+              <button
+                onClick={handlePrevbtn}
+                disabled={currentPage === pages[0] ? true : false}
+              >
+                {'<'}
+              </button>
+            </li>
+            {renderPageNumbers}
+            <li>
+              <button
+                onClick={handleNextbtn}
+                disabled={
+                  currentPage === pages[pages.length - 1] ? true : false
+                }
+              >
+                {'>'}
+              </button>
+            </li>
+          </ul>
+        }
       <div>
               <ByCountry/>
               <ByPlace/>

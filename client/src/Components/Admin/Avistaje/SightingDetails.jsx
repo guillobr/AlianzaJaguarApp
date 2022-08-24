@@ -14,7 +14,7 @@ export default function SightingDetails(){
     const allSighting = useSelector(state=>state.sighting)
 
     const sightingDetail = allSighting.filter(s=>s._id===id)[0]
-    console.log('sDetails>:',sightingDetail)
+    
 
     function handleDeleteSighting(id) {
         dispatch(deleteSighting(id))
@@ -42,9 +42,12 @@ export default function SightingDetails(){
         <p >Observador: {sightingDetail.observador}</p>
         <p >Otro: {sightingDetail.otro}</p>
         <div>
-        <button onClick={() => handleDeleteSighting(id)}>
+                <button onClick={() => handleDeleteSighting(id)}>
                   Eliminar Registro
                 </button>
+                <Link to={`/putSighting/${id}`}>
+                     <button>Modificar Registro</button>
+                </Link> 
         </div>
       </div>
         </div>

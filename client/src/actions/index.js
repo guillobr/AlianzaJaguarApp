@@ -104,6 +104,20 @@ import axios from 'axios'
     }
   }
 
+
+  export function putSighting(payload, id) {
+    console.log('payload:',payload)
+    console.log('id:',id)
+    return async function (dispatch) {
+      const json = await axios.post(
+        `http://localhost:3001/sighting/update/${id}`,
+        payload
+      )
+      return dispatch({
+        type: 'PUT_SIGHTING',
+      })
+    }
+  }
   
 
   
