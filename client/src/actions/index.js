@@ -121,9 +121,137 @@ import axios from 'axios'
   
 
   
-  
+  //POACHINGS
 
+
+  export function postPoaching(payload) {
+    return async function (dispatch) {
+      console.log(payload)
+      const json = await axios.post(
+        'http://localhost:3001/poaching/addPoaching',
+        payload
+      )
+      return dispatch({
+        type: 'POST_POACHING',
+        payload: payload,
+      })
+    }
+  }
+
+  export function getPoaching() {
+    return async function (dispatch) {
+      var json = await axios.get('http://localhost:3001/poaching/')
+      return dispatch({
+        type: 'GET_POACHING',
+        payload: json.data,
+      })
+    }
+  }
+
+  export function getPoachingDate(payload) {
+    return {
+      type: 'GET_POACHING_DATE',
+      payload: payload,
+    }
+  }
+
+  export function getPoachingTime(payload) {
+    console.log('TIIME',payload)
+    return {
+      type: 'GET_POACHING_TIME',
+      payload: payload,
+    }
+  }
+
+
+  export function getPoachingCountry(payload) {
+    return {
+      type: 'GET_POACHING_COUNTRY',
+      payload: payload,
+    }
+  }
+
+
+  export function getPoachingName(payload) {
+    return {
+      type: 'GET_POACHING_NAME',
+      payload: payload,
+    }
+  }
+
+  export function getPoachingPlace(payload) {
+    return {
+      type: 'GET_POACHING_PLACE',
+      payload: payload,
+    }
+  }
+
+  export function getPoachingFrequencyPost(payload) {
+    return {
+      type: 'GET_POACHING_FREQUENCYPOST',
+      payload: payload,
+    }
+  }
+
+  export function getPoachingCommercyType(payload) {
+    return {
+      type: 'GET_POACHING_COMMERCYTYPE',
+      payload: payload,
+    }
+  }
+
+  export function getPoachingCommercyStatus(payload) {
+    return {
+      type: 'GET_POACHING_COMMERCYSTATUS',
+      payload: payload,
+    }
+  }
+
+  export function getPoachingAnimal(payload) {
+    return {
+      type: 'GET_POACHING_ANIMAL',
+      payload: payload,
+    }
+  }
+
+  export function getPoachingCondition(payload) {
+    return {
+      type: 'GET_POACHING_CONDITION',
+      payload: payload,
+    }
+  }
+
+  export function getPoachingObservador(payload) {
+    return {
+      type: 'GET_POACHING_OBSERVADOR',
+      payload: payload,
+    }
+  }
+
+  export function deletePoaching(id) {
+    return async function (dispatch) {
+      const json = await axios.delete(
+        `http://localhost:3001/poaching/deletePoaching/${id}`
+      )
+      return dispatch({
+        type: 'DELETE_POACHING',
+      })
+    }
+  }
  
+
+  export function putPoaching(payload, id) {
+    return async function (dispatch) {
+      const json = await axios.post(
+        `http://localhost:3001/poaching/update/${id}`,
+        payload
+      )
+      return dispatch({
+        type: 'PUT_POACHING',
+      })
+    }
+  }
+  
 
 
 

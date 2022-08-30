@@ -12,31 +12,25 @@ import {
 } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { getSighting , postUser , getUsers} from './actions'
+import { getSighting , postUser , getUsers , getPoaching} from './actions'
 import Home from './Components/Home'
 import Avistaje from './Components/Avistaje';
+import Poaching from './Components/Poaching';
 import NavBar from './Components/NavBar';
 import ProtectedRoute from './Components/ProtectedRoute';
 //import LandingPage from './Components/LandingPage'
-
 //import LogInButton from './Components/LogIn'
 //import AddQuote from './Components/Admin/Add/AddQuote'
 //import Profile from './Components/User/Profile'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Admin } from './Components/Admin/Admin'
 import SightingDetails from './Components/Admin/Avistaje/SightingDetails';
-
 import SightingData from './Components/Admin/Avistaje/SightingData';
 import TrafficData from './Components/Admin/Traffic/TrafficData';
 import PutSighting from './Components/Admin/Avistaje/PutSighting';
+import PutPoaching from './Components/Admin/Traffic/PutPoaching';
+import PoachingDetails from './Components/Admin/Traffic/PoachingDetails';
 
-
-
-// import Add from './Components/Admin/Add/Add'
-// import Put from './Components/Admin/User/Users'
-// import Delete from './Components/Admin/Delete/Delete'
-// import Users from './Components/Admin/User/Users'
-// import AddAuthor from './Components/Admin/Add/AddAuthor'
 
 function App() {
 
@@ -58,14 +52,21 @@ function App() {
     dispatch(getUsers())
   }, [dispatch])
 
+  useEffect(() => {
+    dispatch(getPoaching())
+  }, [dispatch])
+
+
 
   return (
+    <div className='contenedor'>
     <BrowserRouter>
     <NavBar/>
      <Routes>
         <Route>
          <Route path='/' element={<Home />} />
          <Route path='/avistaje' element={<Avistaje />} />
+         <Route path='/poaching' element={<Poaching />} />
         </Route>
         <Route
             path='/admin'
@@ -126,8 +127,35 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path='/poachingID/:id'
+            element={
+              <ProtectedRoute
+                redirectPath='/'
+                isAllowed={
+                  usuario.length === 1 && usuario[0].isSuperAdmin === true
+                }
+              >
+                <PoachingDetails />
+              </ProtectedRoute>
+            }
+          />
+           <Route
+            path='/putPoaching/:id'
+            element={
+              <ProtectedRoute
+                redirectPath='/'
+                isAllowed={
+                  usuario.length === 1 && usuario[0].isSuperAdmin === true
+                }
+              >
+                <PutPoaching />
+              </ProtectedRoute>
+            }
+          />
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }
 
