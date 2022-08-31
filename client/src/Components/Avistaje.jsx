@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postSighting } from '../actions'
+import { useLocation } from 'react-router-dom'
 
 
 export default function Avistaje(){
@@ -10,6 +11,44 @@ export default function Avistaje(){
   const navigate = useNavigate()
 
   const allSighting = useSelector((state) => state.sighting)
+
+  const [state, setState] = useState({
+    longitude: 0,
+    latitude: 0,
+  });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+         console.log(position);
+        setState({
+          longitude: position.coords.longitude,
+          latitude: position.coords.latitude,
+        });
+        
+        setPost({
+          country: '',
+          place: '',
+          date: '',
+          time: '',
+          altitud: '',
+          name: '',
+          scientistname: '',
+          type: '',
+          observador: '',
+          other:'',
+          longitude: position.coords.longitude,
+          latitude: position.coords.latitude,
+        })
+      },
+      function (error) {
+        console.error("Error Code = " + error.code + " - " + error.message);
+      },
+      {
+        enableHighAccuracy: true,
+      }
+    );
+  }, []);
 
 const country = ['Argentina', 'Bolivia']
 const name = [
@@ -115,147 +154,11 @@ const type = [
     type: '',
     observador: '',
     other:'',
+    latitude: state.latitude,
+    longitude: state.longitude
   })
 
-  const [errors, setErrors] = useState({
-    country: '',
-    place: '',
-    date: '',
-    time: '',
-    altitud: '',
-    name: '',
-    scientistname: '',
-    type: '',
-    observador: '',
-  })
-
-//   function validate(post) {
-//     let errors = {}
-//     let nameRegex = /^[a-zA-Z0-9 _]*$/g
-//     let titleRegex = /^[a-zA-Z _]*$/g
-//     if (!post.title) {
-//       errors.title = 'Ingresar titulo (!)'
-//     }
-
-//     if (post.title.length > 50) {
-//       errors.title = 'El titulo es demasiado largo'
-//     }
-
-//     if (!post.authors.name) {
-//       errors.authorsName = 'Ingresar nombre del autor '
-//     }
-
-//     if (post.authors?.name?.length > 50) {
-//       errors.authorsName = 'El nombre es demasiado largo'
-//     }
-
-//     if (!post.authors.name.match(/^[a-zA-Z]*$/g)) {
-//       errors.authorsName = 'El nombre solo puede contener letras'
-//     }
-
-//     if (!post.authors.surname) {
-//       errors.authorsSurname = 'Ingresar apellido del autor'
-//     }
-
-//     if (post.authors.surname.length > 50) {
-//       errors.authorsSurname = 'El apellido es demasiado largo'
-//     }
-
-//     if (!post.authors.surname.match(/^[a-zA-Z]*$/g)) {
-//       errors.authorsSurname = 'El apellido solo puede contener letras'
-//     }
-
-//     if (!post.editorial) {
-//       errors.editorial = 'Ingresar editorial'
-//     }
-
-//     if (post.editorial.length > 50) {
-//       errors.editorial = 'Nombre de editorial demasiado largo'
-//     }
-
-//     if (!post.cover) {
-//       errors.cover = 'Ingresar URL de la portada'
-//     }
-
-//     if (post.editorial.length > 50) {
-//       errors.editorial = 'Nombre de editorial demasiado largo'
-//     }
-
-//     if (!post.rating) {
-//       errors.rating = 'Ingresar el rating!'
-//     }
-
-//     if (
-//       post.rating < 0 ||
-//       post.rating > 10 ||
-//       !post.rating.match(/^[0-9]*$/g)
-//     ) {
-//       errors.rating = 'Debe ser un numero entre 0 y 10'
-//     }
-
-//     if (!post.year) {
-//       errors.year = 'Ingresar año'
-//     }
-
-//     if (post.year && !post.year.match(/^[0-9]*$/g)) {
-//       errors.year = 'Debe ser un numero'
-//     }
-
-//     if (!post.pages) {
-//       errors.pages = 'Ingresar cantidad de paginas'
-//     }
-
-//     if (post.pages > 3031) {
-//       errors.pages = 'La novela mas larga del mundo tiene 3.031 páginas'
-//     }
-
-//     if (post.pages && !post.pages.match(/^[0-9]*$/g)) {
-//       errors.pages = 'Debe ser un numero'
-//     }
-
-//     if (!post.price) {
-//       errors.price = 'Ingresar precio'
-//     }
-
-//     if (post.price > 99999999999) {
-//       errors.price = 'Muy caro'
-//     }
-
-//     if (post.price && !post.price.match(/^[0-9]*$/g)) {
-//       errors.price = 'Debe ser un numero'
-//     }
-
-//     if (!post.stock) {
-//       errors.stock = 'Ingresar stock'
-//     }
-
-//     if (post.stock > 999999999) {
-//       errors.stock = 'El numero es demasiado grande'
-//     }
-
-//     if (post.stock && !post.stock.match(/^[0-9]*$/g)) {
-//       errors.stock = 'Debe ser un numero'
-//     }
-
-//     if (!post.review) {
-//       errors.review = 'Ingresar una reseña/descripcion del libro'
-//     }
-
-//     if (post.review.length > 10000) {
-//       errors.review = 'Alcanzaste el limite de characteres'
-//     }
-
-//     if (!post.genres.length) {
-//       errors.genres = 'Ingresar al menos un genero'
-//     }
-
-//     return errors
-//   }
-
-//   useEffect(() => {
-//     setErrors(validate(post))
-//   }, [post])
-
+ 
   function handleChange(e) {
     setPost({
       ...post,
@@ -326,6 +229,8 @@ const type = [
         scientistname: '',
         type: '',
         observador: '',
+        latitude:'',
+        longitude:''
       })
       navigate('/')
     }
@@ -463,6 +368,27 @@ const type = [
             onChange={(e) => handleChange(e)}
           />
         </div>
+
+        <div>
+          <label>Latitud:</label>
+          <textarea
+            type='text'
+            value={post.latitud}
+            name='latitud'
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+
+        <div>
+          <label>Latitud:</label>
+          <textarea
+            type='text'
+            value={post.longitud}
+            name='longitud'
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+
 
         <div>
           <label>Otra Observacion:</label>

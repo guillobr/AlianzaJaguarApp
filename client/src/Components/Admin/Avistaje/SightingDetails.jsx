@@ -33,6 +33,8 @@ export default function SightingDetails(){
             <div>
         <p >Pais: {sightingDetail.country}</p>
         <p >Localidad: {sightingDetail.place}</p>
+        <p >Latitud: {sightingDetail.latitude}</p>
+        <p >Longitud: {sightingDetail.longitude}</p>
         <p >Fecha: {sightingDetail.date}</p>
         <p >Hora: {sightingDetail.time}</p>
         <p >Altitud: {sightingDetail.altitud}</p>

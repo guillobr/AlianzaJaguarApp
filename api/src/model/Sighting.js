@@ -17,17 +17,13 @@ const sightingSchema = new Schema({
         type: String,
       },
 
-  //     location: {
-  //       type: "Point",
-  //       coordinates: [, ]
-  // },
-      // latitud: {
-      //   type: String,
-      // },
+      latitude: {
+        type: String,
+      },
 
-      // longitud: {
-      //   type: String,
-      // },
+      longitude: {
+        type: String,
+      },
 
       altitud: {
         type: String,

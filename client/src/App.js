@@ -30,6 +30,7 @@ import TrafficData from './Components/Admin/Traffic/TrafficData';
 import PutSighting from './Components/Admin/Avistaje/PutSighting';
 import PutPoaching from './Components/Admin/Traffic/PutPoaching';
 import PoachingDetails from './Components/Admin/Traffic/PoachingDetails';
+import MapView from './Components/Map/MapView';
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
          <Route path='/' element={<Home />} />
          <Route path='/avistaje' element={<Avistaje />} />
          <Route path='/poaching' element={<Poaching />} />
+         <Route path='/mapview' element={<MapView />} />
         </Route>
         <Route
             path='/admin'
