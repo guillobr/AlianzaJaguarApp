@@ -17,9 +17,18 @@ const sightingSchema = new Schema({
         type: String,
       },
 
-      latitude: {
-        type: String,
+      geometry: {
+        type: Array,
       },
+
+      geometry: [
+        Number
+      ],
+
+      geometryManual: 
+        [Number]
+      ,
+
 
       longitude: {
         type: String,

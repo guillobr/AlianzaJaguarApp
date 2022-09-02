@@ -69,8 +69,9 @@ function App() {
          <Route path='/avistaje' element={<Avistaje />} />
          <Route path='/poaching' element={<Poaching />} />
          <Route path='/mapview' element={<MapView />} />
+         <Route path='/admin' element={<Admin />} />
         </Route>
-        <Route
+        {/* <Route
             path='/admin'
             element={
               <ProtectedRoute
@@ -80,7 +81,7 @@ function App() {
                 <Admin />
               </ProtectedRoute>
             }
-          />
+          /> */}
           <Route
             path='/sightingData'
             element={

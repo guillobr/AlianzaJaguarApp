@@ -7,6 +7,9 @@ import { Admin } from "./Admin/Admin";
 import { Link } from "react-router-dom";
 import logo from "../img/Logo.jpg"
 import styles from "../Styles/navbar.module.css"
+import arg from "../img/Flag_of_Argentina.png"
+import bol from "../img/Bandera_de_Bolivia_(Estado).png"
+import par from "../img/paraguay.png"
 
 
 
@@ -15,20 +18,15 @@ export default function NavBar(){
   const {isAuthenticated} = useAuth0()
 
   return(
-    <div>
-      <div>
-        
-      <img src={logo} alt='' className={styles.img}/>
-        <div className={styles.log}>
-        {isAuthenticated?<>
-              {/* <Profile/> */}
-              <Link to="/admin">
-              Administrador
-              </Link>
-              <LogOutButton/>
-              </>:<LogInButton/>}
-        </div>
+    <div className={styles.container} >
+     
+      <h2 className={styles.title} > Alianza Trinacional Jaguar</h2>
+      <div  className={styles.imgcontainer}>
+      <img src={arg} alt='' className={styles.img}/>
+      <img src={bol} alt='' className={styles.img}/>
+      <img src={par} alt='' className={styles.img}/>
       </div>
+            
     </div>
   )
 }

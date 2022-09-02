@@ -124,6 +124,8 @@ export default function SightingData(props) {
               <th>Fecha</th>
               <th>Hora</th>
               <th>Altitud</th>
+              <th>Geometria</th>
+              <th>GeometriaManual</th>
               <th>Nombre Comun</th>
               <th>Nombre Cientifico</th>
               <th>Tipo de Registro</th>
@@ -146,6 +148,8 @@ export default function SightingData(props) {
                 <td>{s.date}</td>
                 <td>{s.time}</td>
                 <td>{s.altitud}</td>
+                <td>{s.geometry}</td>
+                <td>{s.geometryManual}</td>
                 <td>{s.name}</td>
                 <td>{s.scientistname}</td>
                 <td>{s.type}</td>

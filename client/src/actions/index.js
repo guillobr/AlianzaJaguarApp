@@ -23,7 +23,7 @@ import axios from 'axios'
 
   export function postSighting(payload) {
     return async function (dispatch) {
-      console.log(payload)
+      console.log('acion',payload)
       const json = await axios.post(
         'http://localhost:3001/sighting/addSighting',
         payload

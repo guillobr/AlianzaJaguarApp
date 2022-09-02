@@ -9,12 +9,14 @@ import LogOutButton from './LogOut'
 import Profile from './User/Profile'
 import { useAuth0 } from "@auth0/auth0-react";
 import { Admin } from './Admin/Admin'
+import logo from "../img/Logo.jpg"
 
 export default function Home(){
     const dispatch = useDispatch()
     const allSighting = useSelector((state) => state.sighting)
     const usuarios= useSelector(state=> state.users)
     const {isAuthenticated} = useAuth0()
+    const usuario = useSelector((state) => state.userLogged)
 
     // const [state, setState] = useState({
     //   longitude: 0,
@@ -42,12 +44,24 @@ export default function Home(){
     return (
         <div className={styles.home}>
           <header className={styles.headder}>
+          {usuario.length?
+            <div>
+              <h1>Bienvenido: {usuario.nickname}</h1>
+              <div>
+            <Link to='/admin'>
+            <button>Panel de Administrador</button>
+            </Link> 
+            </div>
+            </div>
+            :''}
+      
            <Link className={styles.link} to="/avistaje">
             AVISTAJE
             </Link>
             <Link className={styles.link} to="/poaching">
             TRAFICO
             </Link>
+            <img src={logo} alt='' className={styles.logo}/>
             {/* <h1>Geolocation</h1>
       <p>Latitude: {state.latitude}</p>
       <p>longitude: {state.longitude}</p>

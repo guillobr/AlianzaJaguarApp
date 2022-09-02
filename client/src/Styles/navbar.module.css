@@ -1,5 +1,24 @@
+.container{
+    background-color: rgb(36, 45, 64);
+    
+}
+
+.title{
+    color:white;
+    margin: 0px;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.imgcontainer{
+    
+    margin-right: 0px;
+}
 .img{
-    width:300px;
+    width:70px;
+    height: 50px;
 }
 
 .log{

@@ -37,8 +37,8 @@ export default function Avistaje(){
           type: '',
           observador: '',
           other:'',
-          longitude: position.coords.longitude,
-          latitude: position.coords.latitude,
+          geometry: [position.coords.latitude,position.coords.longitude],
+          geometryManual: []
         })
       },
       function (error) {
@@ -154,8 +154,8 @@ const type = [
     type: '',
     observador: '',
     other:'',
-    latitude: state.latitude,
-    longitude: state.longitude
+    geometry: [state.longitude , state.longitude],
+    geometryManual: []
   })
 
  
@@ -207,6 +207,13 @@ const type = [
       ...post,
       type: e.target.value,
     })
+}
+
+function handleGeometryManual(e) {
+  setPost({
+    ...post,
+    geometryManual:  [...post.geometryManual, e.target.value],
+  })
 }
 
 
@@ -370,25 +377,30 @@ const type = [
         </div>
 
         <div>
+          <h5>{post.geometry}</h5>
+        </div>
+
+        <h1>Manual</h1>
+
+        <div>
           <label>Latitud:</label>
-          <textarea
+          <input
             type='text'
-            value={post.latitud}
-            name='latitud'
-            onChange={(e) => handleChange(e)}
+            value={post.geometryManual}
+            name='name'
+            onChange={(e) => handleGeometryManual(e)}
           />
         </div>
 
         <div>
-          <label>Latitud:</label>
-          <textarea
+          <label>Longitud:</label>
+          <input
             type='text'
-            value={post.longitud}
-            name='longitud'
-            onChange={(e) => handleChange(e)}
+            value={post.geometryManual}
+            name='surname'
+            onChange={(e) => handleGeometryManual(e)}
           />
         </div>
-
 
         <div>
           <label>Otra Observacion:</label>
