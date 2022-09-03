@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-//import styles from '../../Styles/admin.module.css'
+import styles from '../../Styles/admin.module.css'
 import { getAdminQuotes } from '../../actions'
 import { useDispatch, useSelector } from 'react-redux'
 //import { animateScroll as scroll, Element } from 'react-scroll'
@@ -15,18 +15,11 @@ export function Admin() {
   const usuario = useSelector((state) => state.userLogged)
   console.log('U:',usuario)
 
-  // useEffect(() => {
-  //   dispatch(get(getAdminQuotes))
-  // })
 
-
-//   useEffect(() => {
-//     scroll.scrollToTop()
-//   }, [])
 
   return (
-    <div>
-      <div >
+    <div className={styles.admin}>
+      <div>
         {isAuthenticated?<>
               {/* <Profile/> */}
               {/* <Link to="/admin">
@@ -36,29 +29,27 @@ export function Admin() {
               <LogOutButton/>
               </>:<LogInButton/>}
         </div>
+        <div>
             {usuario.length?
-            <div>
-              <h1>Bienvenido: {usuario.nickname}</h1>
+            <div className={styles.click}>
               <div>
-            <Link to='/sightingData'>
-            <button>Avistaje</button>
-            </Link> 
-            </div>
-            <div>
-            <Link to='/trafficData'>
-            <button>Trafico</button>
-        </Link> 
-            </div>
+                <Link to='/sightingData' className={styles.link}>
+                 REGISTRO DE AVISTAJES
+                </Link> 
+              </div>
+              <div>
+                <Link to='/trafficData' className={styles.link}>
+                  REGISTRO DE TRAFICO
+                </Link> 
+              </div>      
             </div>
             :''}
-      <div>
-
-      <Link to='/'>
-            <button>Home</button>
+             </div>
+           <div>
+             <Link to='/' className={styles.link}>
+              HOME
             </Link> 
-        
-
-      </div>
+          </div>
     </div>
   )
 }

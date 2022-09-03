@@ -118,6 +118,8 @@ const type = [
     date: '',
     time: '',
     altitud: '',
+    geo:[],
+    geometry:[],
     name: '',
     scientistname: '',
     type: '',
@@ -133,6 +135,8 @@ const type = [
       date: sightingID[0].date,
       time: sightingID[0].time,
       altitud: sightingID[0].altitud,
+      geo: sightingID[0].geo,
+      geometry: sightingID[0].geometry,
       name: sightingID[0].name,
       scientistname: sightingID[0].scientistname,
       type: sightingID[0].type,
@@ -241,6 +245,26 @@ function handleTypes(e) {
             type='text'
             value={post.altitud}
             name='altitud'
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+
+        <div>
+          <label>Ubicacion:</label>
+          <input
+            type='text'
+            value={post.geometry}
+            name='geometry'
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+
+        <div>
+          <label>Ubicacion Manual:</label>
+          <input
+            type='text'
+            value={post.geo}
+            name='geo'
             onChange={(e) => handleChange(e)}
           />
         </div>

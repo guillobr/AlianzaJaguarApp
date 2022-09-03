@@ -9,7 +9,8 @@ import LogOutButton from './LogOut'
 import Profile from './User/Profile'
 import { useAuth0 } from "@auth0/auth0-react";
 import { Admin } from './Admin/Admin'
-import logo from "../img/Logo.jpg"
+import fondo from "../img/fondo.jpg"
+import BottomBar from './BottomBar'
 
 export default function Home(){
     const dispatch = useDispatch()
@@ -18,38 +19,17 @@ export default function Home(){
     const {isAuthenticated} = useAuth0()
     const usuario = useSelector((state) => state.userLogged)
 
-    // const [state, setState] = useState({
-    //   longitude: 0,
-    //   latitude: 0,
-    // });
-
-    // useEffect(() => {
-    //   navigator.geolocation.getCurrentPosition(
-    //     function (position) {
-    //        console.log(position);
-    //       setState({
-    //         longitude: position.coords.longitude,
-    //         latitude: position.coords.latitude,
-    //       });
-    //     },
-    //     function (error) {
-    //       console.error("Error Code = " + error.code + " - " + error.message);
-    //     },
-    //     {
-    //       enableHighAccuracy: true,
-    //     }
-    //   );
-    // }, []);
 
     return (
         <div className={styles.home}>
-          <header className={styles.headder}>
+        
+          
           {usuario.length?
             <div>
-              <h1>Bienvenido: {usuario.nickname}</h1>
+             
               <div>
-            <Link to='/admin'>
-            <button>Panel de Administrador</button>
+            <Link className={styles.link} to='/admin'>
+            PANEL DE ADMINISTRADOR
             </Link> 
             </div>
             </div>
@@ -61,19 +41,8 @@ export default function Home(){
             <Link className={styles.link} to="/poaching">
             TRAFICO
             </Link>
-            <img src={logo} alt='' className={styles.logo}/>
-            {/* <h1>Geolocation</h1>
-      <p>Latitude: {state.latitude}</p>
-      <p>longitude: {state.longitude}</p>
-      <Link
-        to={{
-          pathname: "/mapview",
-          geo : state,
-        }}
-      >
-        See marker
-      </Link> */}
-          </header>    
+             
+         
         </div>
       ); 
 }

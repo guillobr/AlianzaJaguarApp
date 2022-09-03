@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postSighting } from '../actions'
 import { useLocation } from 'react-router-dom'
+import styles from '../Styles/avistaje.module.css'
 
 
 export default function Avistaje(){
@@ -38,7 +39,8 @@ export default function Avistaje(){
           observador: '',
           other:'',
           geometry: [position.coords.latitude,position.coords.longitude],
-          geometryManual: []
+          latitud:'',
+          longitud:''
         })
       },
       function (error) {
@@ -155,7 +157,8 @@ const type = [
     observador: '',
     other:'',
     geometry: [state.longitude , state.longitude],
-    geometryManual: []
+    latitud: '',
+    longitud: ''
   })
 
  
@@ -209,12 +212,12 @@ const type = [
     })
 }
 
-function handleGeometryManual(e) {
-  setPost({
-    ...post,
-    geometryManual:  [...post.geometryManual, e.target.value],
-  })
-}
+// function handleGeometryManual(e) {
+//   setPost({
+//     ...post,
+//     geometryManual: [e.target.value]
+//   })
+// }
 
 
   
@@ -236,48 +239,28 @@ function handleGeometryManual(e) {
         scientistname: '',
         type: '',
         observador: '',
-        latitude:'',
-        longitude:''
+        geometry:[],
+        latitud:'',
+        longitud:''
       })
       navigate('/')
     }
   
 
   return (
-    <div >
-      <h1>Avistaje</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        {/* <div>
-            <select onChange={(e) => handleCountries(e)} defaultValue='default'>
-            <option value='default' disabled>Pais</option>
-            {country &&
-                country.map((country) => (
-                <option key={country} value={country}>
-                    {country}
-                </option>
-                ))}
-            </select>
-        </div> */}
+    <div className={styles.avistaje} >
+      <h1 className={styles.titleForm}>Reportar Avistaje</h1>
+      <form className={styles.containerForm}  onSubmit={(e) => handleSubmit(e)}>
+  
         <div>
+         <label>Pais:</label>
          <select onChange={(e) => handleCountries(e)} defaultValue='default'>
-         <option value='default' disabled>Pais</option>
-         <option value='Argentina'>Argentina</option>
-         <option value='Bolivia'>Bolivia</option>
+          <option value='default' disabled>Pais</option>
+          <option value='Argentina'>Argentina</option>
+          <option value='Bolivia'>Bolivia</option>
          </select>
-
         </div>
-        {/* {post.country.map((country) => (
-          <div  key={country}>
-            <p>{country}</p>
-            <button
-              onClick={() => handleCountryDelete(country)}
-            >
-              X
-            </button>
-          </div>
-        ))} */}
-
-       
+        
         <div>
           <label>Sitio:</label>
           <input
@@ -287,8 +270,7 @@ function handleGeometryManual(e) {
             onChange={(e) => handleChange(e)}
           />
         </div>
-
-           
+ 
         <div>
           <label>Fecha:</label>
           <input
@@ -320,6 +302,7 @@ function handleGeometryManual(e) {
         </div>
 
         <div>
+        <label>Nombre Comun:</label>
             <select onChange={(e) => handleNames(e)} defaultValue='default'>
             <option value='default' disabled>Nombre comun</option>
             {name &&
@@ -330,19 +313,9 @@ function handleGeometryManual(e) {
                 ))}
             </select>
         </div>
-      
-        {/* {post.name.map((name) => (
-          <div  key={name}>
-            <p>{name}</p>
-            <button
-              onClick={() => handleNameDelete(name)}
-            >
-              X
-            </button>
-          </div>
-        ))} */}
 
         <div>
+        <label>Nombre Cientifico:</label>
             <select onChange={(e) => handleScientistNames(e)} defaultValue='default'>
             <option value='default' disabled>Nombre Cientifico</option>
             {scientistname &&
@@ -355,6 +328,7 @@ function handleGeometryManual(e) {
         </div>
 
         <div>
+        <label>Tipo de Registro:</label>
             <select onChange={(e) => handleTypes(e)} defaultValue='default'>
             <option value='default' disabled>Tipo de Registro</option>
             {type &&
@@ -377,31 +351,35 @@ function handleGeometryManual(e) {
         </div>
 
         <div>
-          <h5>{post.geometry}</h5>
+          <label>Ubicacion del avistamiento</label>
+            <h2 className={styles.h2}>OPCION 1 : Automatica </h2>
+              <h5 className={styles.h5}>* Para colocar la ubicacion de forma automatica debe aceptar el acceso a su ubicacion</h5>
+              <h3 className={styles.h3}>Latitud :</h3>
+              <h4 className={styles.h4}>{state.latitude}</h4>
+              <h3 className={styles.h3}>Longitud :</h3>
+              <h4 className={styles.h4}>{state.longitude}</h4>
+            <h2 className={styles.h2}>OPCION 2 : Manual</h2>
+              <h5 className={styles.h5}>* Si desea colocar la ubicacion de forma manual, el sistema solo acpetara valores en formato decimal. Ej: Latitud:-34.5901
+              Longitud:-58.3794</h5>
+              <div>
+                <label>Latitud:</label>
+                <input
+                  type='text'
+                  value={post.latitud}
+                  name='latitud'
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div>
+                <label>Longitud:</label>
+                <input
+                  type='text'
+                  value={post.longitud}
+                  name='longitud'
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
         </div>
-
-        <h1>Manual</h1>
-
-        <div>
-          <label>Latitud:</label>
-          <input
-            type='text'
-            value={post.geometryManual}
-            name='name'
-            onChange={(e) => handleGeometryManual(e)}
-          />
-        </div>
-
-        <div>
-          <label>Longitud:</label>
-          <input
-            type='text'
-            value={post.geometryManual}
-            name='surname'
-            onChange={(e) => handleGeometryManual(e)}
-          />
-        </div>
-
         <div>
           <label>Otra Observacion:</label>
           <textarea
@@ -412,16 +390,13 @@ function handleGeometryManual(e) {
           />
         </div>
 
-
-
-
-        <button type='submit'>
-          Agregar Avistaje
+      <button classname={styles.button} type='submit'>
+          AGREGAR AVISTAJE
         </button>
       </form>
 
       <Link to='/'>
-        <button>↼ Atras</button>
+        <button className={`${styles.btnAdmin}`}>↼ Atras</button>
       </Link>
     </div>
   )

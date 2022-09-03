@@ -43,9 +43,8 @@ router.post('/addSighting', async function (req, res) {
     date,
     time,
     geometry,
-    geometryManual,
-    latitude,
-    longitude,
+    latitud,
+    longitud,
     altitud,
     name,
     scientistname,
@@ -54,6 +53,10 @@ router.post('/addSighting', async function (req, res) {
     other
   } = req.body
   
+  let geo = []
+  geo.push(latitud)
+  geo.push(longitud)
+  console.log(geo)
 
   try {
     
@@ -63,10 +66,10 @@ router.post('/addSighting', async function (req, res) {
         place,
         date,
         time,
-        latitude,
-        longitude,
+        latitud,
+        longitud,
         geometry,
-        geometryManual,
+        geo,
         altitud,
         name,
         scientistname,

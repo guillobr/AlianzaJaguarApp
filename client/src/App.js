@@ -18,9 +18,7 @@ import Avistaje from './Components/Avistaje';
 import Poaching from './Components/Poaching';
 import NavBar from './Components/NavBar';
 import ProtectedRoute from './Components/ProtectedRoute';
-//import LandingPage from './Components/LandingPage'
 //import LogInButton from './Components/LogIn'
-//import AddQuote from './Components/Admin/Add/AddQuote'
 //import Profile from './Components/User/Profile'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Admin } from './Components/Admin/Admin'
@@ -31,6 +29,8 @@ import PutSighting from './Components/Admin/Avistaje/PutSighting';
 import PutPoaching from './Components/Admin/Traffic/PutPoaching';
 import PoachingDetails from './Components/Admin/Traffic/PoachingDetails';
 import MapView from './Components/Map/MapView';
+import AboutUs from './Components/AboutUs';
+import BottomBar from './Components/BottomBar';
 
 
 function App() {
@@ -65,11 +65,12 @@ function App() {
     <NavBar/>
      <Routes>
         <Route>
-         <Route path='/' element={<Home />} />
-         <Route path='/avistaje' element={<Avistaje />} />
-         <Route path='/poaching' element={<Poaching />} />
-         <Route path='/mapview' element={<MapView />} />
-         <Route path='/admin' element={<Admin />} />
+         <Route path='/' element={<Home/>} />
+         <Route path='/avistaje' element={<Avistaje/>} />
+         <Route path='/poaching' element={<Poaching/>} />
+         <Route path='/mapview' element={<MapView/>} />
+         <Route path='/admin' element={<Admin/>} />
+         <Route path='/aboutUs' element={<AboutUs/>} />
         </Route>
         {/* <Route
             path='/admin'
@@ -157,6 +158,7 @@ function App() {
             }
           />
       </Routes>
+      <BottomBar/>
     </BrowserRouter>
     </div>
   );

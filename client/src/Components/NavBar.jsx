@@ -18,15 +18,21 @@ export default function NavBar(){
   const {isAuthenticated} = useAuth0()
 
   return(
+    <div className={styles.c}>
     <div className={styles.container} >
-     
-      <h2 className={styles.title} > Alianza Trinacional Jaguar</h2>
-      <div  className={styles.imgcontainer}>
-      <img src={arg} alt='' className={styles.img}/>
-      <img src={bol} alt='' className={styles.img}/>
-      <img src={par} alt='' className={styles.img}/>
+        <h2 className={styles.title} > Alianza TriNacional Jaguar</h2>
+        <Link to="/aboutUs"className={styles.link}>
+          QUIENES SOMOS
+        </Link>
+        <div  className={styles.imgcontainer}>
+          <img src={arg} alt='' className={styles.img}/>
+          <img src={bol} alt='' className={styles.img}/>
+          <img src={par} alt='' className={styles.img}/>
+        </div>
       </div>
-            
+      <div className={styles.cline}>
+      <hr className={styles.line}></hr> 
+      </div>    
     </div>
   )
 }

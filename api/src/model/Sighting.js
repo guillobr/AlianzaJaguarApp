@@ -24,16 +24,26 @@ const sightingSchema = new Schema({
       geometry: [
         Number
       ],
-
-      geometryManual: 
-        [Number]
-      ,
-
-
-      longitude: {
-        type: String,
+      
+      latitud:{
+        type:String
       },
 
+      longitud:{
+        type:String
+      },
+
+      geo:[String],
+
+      // geometryManual: 
+      //   {
+      //     latitude: String,
+      //     longitude: String,
+      //   }
+      // ,
+
+
+  
       altitud: {
         type: String,
       },

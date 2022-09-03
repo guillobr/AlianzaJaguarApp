@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postPoaching } from '../actions'
+import styles from '../Styles/poaching.module.css'
 
 
 export default function Poaching(){
@@ -91,11 +92,12 @@ export default function Poaching(){
 
 
   return (
-    <div >
-      <h1>Venta/Trafico</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
+    <div className={styles.poaching}>
+      <h1 className={styles.titleForm}>REPORTAR VENTA O TRAFICO DE VIDA SILVESTRE</h1>
+      <form className={styles.containerForm} onSubmit={(e) => handleSubmit(e)}>
        
         <div>
+          <label>Pais:</label>
          <select onChange={(e) => handleCountries(e)} defaultValue='default'>
          <option value='default' disabled>Pais</option>
          <option value='Argentina'>Argentina</option>
@@ -146,7 +148,7 @@ export default function Poaching(){
         </div>
 
         <div>
-          <label>Fracuencia de venta:</label>
+          <label>Fracuencia de Venta:</label>
           <input
             type='text'
             value={post.postsFrecuency}
@@ -156,7 +158,7 @@ export default function Poaching(){
         </div>
 
         <div>
-          <label>Tipo de comercio:</label>
+          <label>Tipo de Comercio:</label>
           <input
             type='text'
             value={post.commercyType}
@@ -167,6 +169,7 @@ export default function Poaching(){
 
        
         <div>
+          <label>Estado del Comercio</label>
          <select onChange={(e) => handleCommercyStatus(e)} defaultValue='default'>
          <option value='default' disabled>Estado de comercio</option>
          <option value='Abierto'>Abierto</option>
@@ -176,8 +179,8 @@ export default function Poaching(){
         </div>
 
         <div>
-          <label>Animales en venta:</label>
-          <input
+          <label>Animales en Venta:</label>
+          <textarea
             type='text'
             value={post.animal}
             name='animal'
@@ -187,7 +190,7 @@ export default function Poaching(){
 
         <div>
           <label>Condicion:</label>
-          <input
+          <textarea
             type='text'
             value={post.animalCondition}
             name='animalCondition'
@@ -197,7 +200,7 @@ export default function Poaching(){
 
         <div>
           <label>Cantidad:</label>
-          <input
+          <textarea
             type='text'
             value={post.quantity}
             name='quantity'
@@ -207,7 +210,7 @@ export default function Poaching(){
 
         <div>
           <label>Precio:</label>
-          <input
+          <textarea
             type='text'
             value={post.price}
             name='price'
@@ -217,7 +220,7 @@ export default function Poaching(){
 
         <div>
           <label>Origen:</label>
-          <input
+          <textarea
             type='text'
             value={post.origin}
             name='origin'
@@ -248,13 +251,13 @@ export default function Poaching(){
        
      
 
-        <button type='submit'>
-          Registrar
+        <button  classname={styles.button} type='submit'>
+          REGISTRAR
         </button>
       </form>
 
       <Link to='/'>
-        <button>↼ Atras</button>
+        <button className={`${styles.btnAdmin}`}>↼ Atras</button>
       </Link>
     </div>
   )
