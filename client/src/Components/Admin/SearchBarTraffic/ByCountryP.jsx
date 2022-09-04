@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getPoachingCountry } from '../../../actions'
+import styles from '../../../Styles/refreshButton.module.css'
+import style from '../../../Styles/select.module.css'
 
 const ByCountryP = () => {
   const [input, setInput] = useState('')
@@ -31,13 +33,14 @@ const ByCountryP = () => {
     <div>
      
        <div>
-         <select onChange={(e) => handleChange(e)} defaultValue='default'>
+         <select className={style.select} onChange={(e) => handleChange(e)} defaultValue='default'>
          <option value='default' disabled>Pais</option>
          <option value='Argentina'>Argentina</option>
          <option value='Bolivia'>Bolivia</option>
          </select>
     </div>
       <button
+      className={styles.btn}
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >

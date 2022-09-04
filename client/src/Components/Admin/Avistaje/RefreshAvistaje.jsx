@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { getSighting } from '../../../actions'
 import { Link } from 'react-router-dom'
+import styles from '../../../Styles/refreshButton.module.css'
 
 export default function RefreshSighting() {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ export default function RefreshSighting() {
   return (
     <div>
       <Link to='/sightingData'>
-        <button onClick={handleClickSighting}>
+        <button className={styles.btn} onClick={handleClickSighting}>
           Todos los Avistajes
         </button>
       </Link>

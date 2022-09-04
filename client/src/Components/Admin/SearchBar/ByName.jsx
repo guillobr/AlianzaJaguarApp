@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getSightingName } from '../../../actions'
+import styles from '../../../Styles/refreshButton.module.css'
+import style from '../../../Styles/select.module.css'
 
 const ByName = () => {
 
@@ -41,7 +43,7 @@ const ByName = () => {
     <div>
      
      <div>
-            <select onChange={(e) => handleNames(e)} defaultValue='default'>
+            <select className={style.select} onChange={(e) => handleNames(e)} defaultValue='default'>
             <option value='default' disabled>Nombre comun</option>
             {name &&
                 name.map((name) => (
@@ -52,6 +54,7 @@ const ByName = () => {
             </select>
         </div>
       <button
+      className={styles.btn} 
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >

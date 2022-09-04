@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { getPoaching } from '../../../actions'
 import { Link } from 'react-router-dom'
+import styles from '../../../Styles/refreshButton.module.css'
 
 export default function RefreshPoaching() {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ export default function RefreshPoaching() {
   return (
     <div>
       <Link to='/poachingData'>
-        <button onClick={handleClickPoaching}>
+        <button className={styles.btn} onClick={handleClickPoaching}>
           Todos los Regsitros
         </button>
       </Link>

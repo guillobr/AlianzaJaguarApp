@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getSightingTime } from '../../../actions'
+import styles from '../../../Styles/select.module.css'
 
 const ByTime= () => {
   const [input, setInput] = useState('')
@@ -24,7 +25,7 @@ const ByTime= () => {
   return (
     <div>
      
-     <select
+     <select className={styles.select}
                      
                       onChange={(e) => handleOrderByName(e)}
                       defaultValue='default'

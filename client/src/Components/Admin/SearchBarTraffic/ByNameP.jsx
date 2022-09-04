@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getPoachingName } from '../../../actions'
+import styles from '../../../Styles/refreshButton.module.css'
+import style from '../../../Styles/input.module.css'
 
 const ByNameP = () => {
 
@@ -33,6 +35,7 @@ const ByNameP = () => {
   return (
     <div>
       <input
+      className={style.input}
         type='text'
         placeholder='Palabra'
         value={input}
@@ -40,6 +43,7 @@ const ByNameP = () => {
         onKeyPress={(e) => handleKeyPress(e)}
       />
       <button
+      className={styles.btn} 
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getPoachingDate } from '../../../actions'
+import style from '../../../Styles/select.module.css'
 
 const ByDateP = () => {
   const [input, setInput] = useState('')
@@ -21,7 +22,7 @@ const ByDateP = () => {
 
   return (
     <select
-                     
+    className={style.select}             
     onChange={(e) => handleOrderByDate(e)}
     defaultValue='default'
   >

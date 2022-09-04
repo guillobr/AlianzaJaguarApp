@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getSightingType} from '../../../actions'
+import styles from '../../../Styles/refreshButton.module.css'
+import style from '../../../Styles/select.module.css'
 
 const ByType = () => {
 
@@ -35,7 +37,7 @@ const ByType = () => {
     <div>
      
      <div>
-            <select onChange={(e) => handleTypes(e)} defaultValue='default'>
+            <select className={style.select} onChange={(e) => handleTypes(e)} defaultValue='default'>
             <option value='default' disabled>Tipo de Registro</option>
             {type &&
                 type.map((type) => (
@@ -46,10 +48,11 @@ const ByType = () => {
             </select>
         </div>
       <button
+        className={styles.btn}
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >
-        Por Tipo De Registro
+        Buscar
       </button>
     </div>
   )

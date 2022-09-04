@@ -17,6 +17,8 @@ import ByConditionP from '../SearchBarTraffic/ByConditionP'
 import ByDateP from '../SearchBarTraffic/ByDateP'
 import ByCountryP from '../SearchBarTraffic/ByCountryP'
 import ByObservadorP from '../SearchBarTraffic/ByObservadorP'
+import styles from '../../../Styles/sightingData.module.css'
+import style  from '../../../Styles/select.module.css'
 
 
 
@@ -103,11 +105,11 @@ export default function TrafficData(props) {
 
 
   return poaching.length > 0 ? (
-    <div >
+    <div  className={styles.containerAll}>
       <h1>Control de Registros de Trafico</h1>
       <div>
-        <Link to='/admin'>
-          <button>Panel de Administrador</button>
+        <Link className={styles.link} to='/admin'>
+          Panel de Administrador
         </Link>
         <RefreshPoaching/>
        
@@ -115,8 +117,8 @@ export default function TrafficData(props) {
         {/* <AdminRefreshUsers />
         <AdminSearchBarUser /> */}
       </div>
-      <div>
-        <table>
+      <div className={styles.containerTable__Pagination}>
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>id</th>
@@ -141,7 +143,7 @@ export default function TrafficData(props) {
             {currentItems.map((s) => (
               <tr key={s._id}>
                 <td>
-                  <Link to={`/poachingID/${s._id}`}>
+                  <Link  className={styles.linkTabla} to={`/poachingID/${s._id}`}>
                     {s._id}
                   </Link>
                 </td>
@@ -166,7 +168,7 @@ export default function TrafficData(props) {
         </table>
       </div>
       {
-          <ul>
+          <ul className={styles.paginationStock}>
             <li>
               <button
                 onClick={handlePrevbtn}
@@ -188,18 +190,18 @@ export default function TrafficData(props) {
             </li>
           </ul>
         }
-      <div>
+      <div className={styles.containerUser}>
               <ByCountryP/>
               <ByPlaceP/>
               {/* <ByDate/>
               <ByTime/> */}
-              <select onChange={(e) => handleOrderByName(e)}defaultValue='default'>
+              <select className={style.select} onChange={(e) => handleOrderByName(e)}defaultValue='default'>
                 <option value='default' disabled>Orden por Hora</option>
                 <option value='Nuevos'>0-24</option>
                 <option value='Viejos'>24-0</option>
               </select>
 
-              <select onChange={(e) => handleOrderByDate(e)} defaultValue='default'>
+              <select className={style.select} onChange={(e) => handleOrderByDate(e)} defaultValue='default'>
                 <option value='default' disabled>Orden por Fecha</option>
                 <option value='Nuevos'>Nuevos</option>
                 <option  value='Viejos'>Viejos</option>

@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getPoachingObservador } from '../../../actions'
+import styles from '../../../Styles/refreshButton.module.css'
+import style from '../../../Styles/input.module.css'
 
 const ByObervadorP = () => {
   const [input, setInput] = useState('')
@@ -28,19 +30,24 @@ const ByObervadorP = () => {
 
   return (
     <div>
+      <div>
       <input
         type='text'
-        placeholder='Palabra'
+        placeholder='Observador'
         value={input}
         onChange={(e) => handleChange(e)}
         onKeyPress={(e) => handleKeyPress(e)}
       />
+      </div>
+      <div>
       <button
+      className={styles.btn}
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >
-        Por Observador
+       Buscar
       </button>
+      </div>
     </div>
   )
 }
