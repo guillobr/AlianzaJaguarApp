@@ -304,7 +304,7 @@ const type = [
         <div>
         <label>Nombre Comun:</label>
             <select onChange={(e) => handleNames(e)} defaultValue='default'>
-            <option value='default' disabled>Nombre comun</option>
+            <option value='default' disabled>Nombre Comun</option>
             {name &&
                 name.map((name) => (
                 <option key={name} value={name}>

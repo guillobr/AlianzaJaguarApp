@@ -10,6 +10,7 @@ import styles from "../Styles/navbar.module.css"
 import arg from "../img/Flag_of_Argentina.png"
 import bol from "../img/Bandera_de_Bolivia_(Estado).png"
 import par from "../img/paraguay.png"
+import titulo from "../img/LogoTitulo.png"
 
 
 
@@ -20,9 +21,13 @@ export default function NavBar(){
   return(
     <div className={styles.c}>
     <div className={styles.container} >
-        <h2 className={styles.title} > Alianza TriNacional Jaguar</h2>
+        {/* <h2 className={styles.title} > Alianza TriNacional Jaguar</h2> */}
+        <img className={styles.titlePic} src={titulo} alt=''/>
         <Link to="/aboutUs"className={styles.link}>
           QUIENES SOMOS
+        </Link>
+        <Link to="/aboutUs"className={styles.link}>
+          PROYECTOS
         </Link>
         <div  className={styles.imgcontainer}>
           <img src={arg} alt='' className={styles.img}/>

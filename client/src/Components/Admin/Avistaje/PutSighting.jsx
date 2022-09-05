@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { putSighting , getSighting } from '../../../actions'
 import { Link } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
+import styles from '../../../Styles/avistaje.module.css'
 
 export default function PutSighting() {
     const country = ['Argentina', 'Bolivia']
@@ -194,11 +195,12 @@ function handleTypes(e) {
   }
 
   return (
-    <div >
-      <h1 >Modifica el Registro</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
+    <div className={styles.avistaje}>
+      <h1 className={styles.titleForm} >Modifica el Registro</h1>
+      <form className={styles.containerForm} onSubmit={(e) => handleSubmit(e)}>
         
         <div>
+          <label>Pais</label>
          <select onChange={(e) => handleCountries(e)} defaultValue='default'>
          <option value='default' disabled>{sightingID[0].country}</option>
          <option value='Argentina'>Argentina</option>
@@ -250,7 +252,7 @@ function handleTypes(e) {
         </div>
 
         <div>
-          <label>Ubicacion:</label>
+          <label>Ubicacion - Latidtud,Longitud</label>
           <input
             type='text'
             value={post.geometry}
@@ -260,7 +262,7 @@ function handleTypes(e) {
         </div>
 
         <div>
-          <label>Ubicacion Manual:</label>
+          <label>Ubicacion Manual - Latidtud,Longitud</label>
           <input
             type='text'
             value={post.geo}
@@ -270,6 +272,7 @@ function handleTypes(e) {
         </div>
 
         <div>
+          <label>Nombre Comun</label>
             <select onChange={(e) => handleNames(e)} defaultValue='default'>
             <option value='default' disabled>{sightingID[0].name}</option>
             {name &&
@@ -282,6 +285,7 @@ function handleTypes(e) {
         </div>
 
         <div>
+        <label>Nombre Cientifico</label>
             <select onChange={(e) => handleScientistNames(e)} defaultValue='default'>
             <option value='default' disabled>{ sightingID[0].scientistname}</option>
             {scientistname &&
@@ -294,6 +298,7 @@ function handleTypes(e) {
         </div>
 
         <div>
+        <label>Tipo de Registro</label>
             <select onChange={(e) => handleTypes(e)} defaultValue='default'>
             <option value='default' disabled>{ sightingID[0].type}</option>
             {type &&
@@ -327,14 +332,14 @@ function handleTypes(e) {
 
 
 
-        <button type='submit'>
-          Modificar Registro
+        <button classname={styles.button} type='submit'>
+          MODIFICAR REGISTRO
         </button>
       </form>
 
-      <Link to={`/sightingID/${id}`}>
-                    {id}
-                  </Link>
+      <Link className={`${styles.btnAdmin}`} to={`/sightingID/${id}`}>
+      ↼ Atras
+      </Link>
     </div>
   )
 }

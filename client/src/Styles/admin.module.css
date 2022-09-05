@@ -5,7 +5,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: calc(10px + 2vmin);
+      font-size: calc(0.6rem + 1vw);
      
   }
   .click{
@@ -19,17 +19,17 @@
     .link {
       background-color: #efefef00;
       border: solid;
-      margin: 15px;
+      margin: 2.5vh;
       border-color: rgb(20, 26, 39);
       color: rgb(20, 26, 39);
-      padding: 14px 25px;
+      padding: 2vh 3vh;
       text-align: center;
       text-decoration: none;
       display: inline-block;
       border-radius: 5px;
       font-weight: bold;
       font-family:Arial, Helvetica, sans-serif;
-      font-size: 20px;
+      font-size: calc(0.6rem + 1vw);
     }
   
     .link:hover{
@@ -37,3 +37,37 @@
       color:white
     }
     
+    @media (max-width: 500px){
+      .admin{
+      background-color: rgb(255, 255, 255);
+      min-height: 120vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(0.6rem + 1vw);
+      }
+
+    
+      .link {
+        background-color: #efefef00;
+        border: solid;
+        margin: 2.5vh;
+        border-color: rgb(20, 26, 39);
+        color: rgb(20, 26, 39);
+        padding: 2vh 3vh;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 5px;
+        font-weight: bold;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: calc(0.6rem + 1vw);
+      }
+    
+      .link:hover{
+        background-color: rgb(20, 26, 39);
+        color:white
+      }
+    }
+  

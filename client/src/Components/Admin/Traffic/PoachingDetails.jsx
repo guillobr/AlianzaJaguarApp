@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getPoaching, getSighting } from "../../../actions";
 import { deletePoaching } from "../../../actions";
+import styles from '../../../Styles/details.module.css'
 
 export default function PoachingDetails(){
     const id = useParams().id
@@ -25,12 +26,12 @@ export default function PoachingDetails(){
 
     return(
         
-        <div>
-        <Link to='/trafficData'>
-        <button>Panel de Registros</button>
+        <div className={styles.container}>
+        <Link className={styles.link}  to='/trafficData'>
+        PANEL DE REGISTROS
         </Link>
-            <h1>Detalles de Registro</h1>
-            <div>
+            <h1 className={styles.title}>Detalles de Registro</h1>
+            <div className={styles.p}>
         <p >Pais: {poachingDetail.country}</p>
         <p >Localidad: {poachingDetail.place}</p>
         <p >Fecha: {poachingDetail.date}</p>
@@ -46,12 +47,12 @@ export default function PoachingDetails(){
         <p >Observador: {poachingDetail.observador}</p>
         <p >Otro: {poachingDetail.otro}</p>
         <div>
-                <button onClick={() => handleDeletePoaching(id)}>
-                  Eliminar Registro
-                </button>
-                <Link to={`/putPoaching/${id}`}>
-                     <button>Modificar Registro</button>
-                </Link> 
+          <button className={styles.button} onClick={() => handleDeletePoaching(id)}>
+            ELIMINAR
+          </button>
+          <Link className={styles.link}to={`/putPoaching/${id}`}>
+               MODIFICAR
+          </Link> 
         </div>
       </div>
         </div>

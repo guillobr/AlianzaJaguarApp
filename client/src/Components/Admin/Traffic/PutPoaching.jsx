@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { putPoaching , getPoaching } from '../../../actions'
 import { Link } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
+import styles from '../../../Styles/putPoaching.module.css'
 
 
 export default function PutPoaching(){
@@ -110,11 +111,12 @@ export default function PutPoaching(){
 
 
   return (
-    <div >
-      <h1>Modifica El Registro</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
+    <div className={styles.poaching}>
+      <h1 className={styles.titleForm}>MODIFICAR REGISTRO</h1>
+      <form className={styles.containerForm} onSubmit={(e) => handleSubmit(e)}>
        
         <div>
+        <label>Pais</label>
          <select onChange={(e) => handleCountries(e)} defaultValue='default'>
          <option value='poachingID[0].country' disabled>Pais</option>
          <option value='Argentina'>Argentina</option>
@@ -165,7 +167,7 @@ export default function PutPoaching(){
         </div>
 
         <div>
-          <label>Fracuencia de venta:</label>
+          <label>Frecuencia de venta:</label>
           <input
             type='text'
             value={post.postsFrecuency}
@@ -186,6 +188,7 @@ export default function PutPoaching(){
 
        
         <div>
+        <label>Estado de Comercio</label>
          <select onChange={(e) => handleCommercyStatus(e)} defaultValue='default'>
          <option value='default' disabled>Estado de comercio</option>
          <option value='Abierto'>Abierto</option>
@@ -266,14 +269,14 @@ export default function PutPoaching(){
 
        
      
-        <button type='submit'>
-          Modificar Registro
+        <button  classname={styles.button} type='submit'>
+          MODIFICAR
         </button>
       </form>
 
-      <Link to={`/poachingID/${id}`}>
-                    {id}
-                  </Link>
+      <Link className={styles.link} to={`/poachingID/${id}`}>
+          ↼ Atras
+      </Link>
     </div>
   )
 }

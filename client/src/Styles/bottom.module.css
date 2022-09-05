@@ -1,3 +1,5 @@
+/* black
+
 .c {
     position:relative;
     bottom:0px;
@@ -37,5 +39,63 @@
    
     width: 50%;
     border-top: 1px solid white;
+  
+} */
+
+/* white */
+
+
+
+.c {
+  position:relative;
+  bottom:0px;
+  z-index: 100;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  height: 50vh;
+  padding-top: 5vh; 
+  }
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+ 
+
+.logo {
+  width:50%;
+  height:30%;
+}
+
+
+.logoBlack {
+width:30%;
+height:30%;
+}
+
+.redes{
+  padding: 2.5vh 2.5vh 2.5vh 2.5vh;
+}
+
+
+.line{
+  width: 50%;
+  border-top: 1px solid white;
+}
+
+@media (max-width: 500px){
+
+  
+.logoBlack {
+  width:55%;
+  height:35%;
+}
+.redes{
+  width:30%;
+  height:20%;
+}
   
 }

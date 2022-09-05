@@ -16,7 +16,7 @@ export default function RefreshSighting() {
     <div>
       <Link to='/sightingData'>
         <button className={styles.btn} onClick={handleClickSighting}>
-          Todos los Avistajes
+         TODOS LOS REGISTROS
         </button>
       </Link>
     </div>

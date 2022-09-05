@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getSighting } from "../../../actions";
 import { deleteSighting } from "../../../actions";
+import styles from '../../../Styles/details.module.css'
 
 export default function SightingDetails(){
     const id = useParams().id
@@ -25,12 +26,12 @@ export default function SightingDetails(){
 
     return(
         
-        <div>
-        <Link to='/sightingData'>
-        <button>Panel de Registros</button>
+        <div className={styles.container}>
+        <Link className={styles.link} to='/sightingData'>
+        PANEL DE REGISTROS
         </Link>
-            <h1>Detalles de Avistaje</h1>
-            <div>
+            <h1 className={styles.title} >Detalles de Avistaje</h1>
+            <div className={styles.p}>
         <p >Pais: {sightingDetail.country}</p>
         <p >Localidad: {sightingDetail.place}</p>
         <p>Ubicacion: {sightingDetail.geometry}</p>
@@ -44,12 +45,12 @@ export default function SightingDetails(){
         <p >Observador: {sightingDetail.observador}</p>
         <p >Otro: {sightingDetail.otro}</p>
         <div>
-                <button onClick={() => handleDeleteSighting(id)}>
-                  Eliminar Registro
-                </button>
-                <Link to={`/putSighting/${id}`}>
-                     <button>Modificar Registro</button>
-                </Link> 
+          <button className={styles.button} onClick={() => handleDeleteSighting(id)}>
+          ELIMINAR
+          </button>
+          <Link className={styles.link}  to={`/putSighting/${id}`}>
+          MODIFICAR
+          </Link> 
         </div>
       </div>
         </div>

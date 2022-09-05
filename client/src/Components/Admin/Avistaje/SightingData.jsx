@@ -108,7 +108,7 @@ export default function SightingData(props) {
       <h1>Control de Registros de Avistaje</h1>
       <div>
         <Link className={styles.link} to='/admin'>
-          Panel de Administrador
+          PANEL DE ADMINISTRADOR
         </Link>
         <RefreshSighting/>
        

@@ -22,10 +22,10 @@
   .link {
     background-color:  rgba(20, 26, 39, 0);
     border: solid;
-    margin: 15px;
+    margin: 2vh;
     border-color: rgb(20, 26, 39);
     color: rgb(0, 0, 0);
-    padding: 14px 25px;
+    padding: 2.5vh 2.5vh;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -43,8 +43,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 200px;
-  padding: 2rem 0;
+    margin-left: 40vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
   }
 
   .paginationStock {
@@ -54,31 +55,13 @@
     list-style: none;
   }
 
-
-  .paginationBulletActive {
-    border-radius: 50%;
-    padding: 5px 10px;
-    background-color: #3cbaba;
-    color: rgb(203, 17, 17);
-    list-style: none;
-    cursor: pointer;
-  }
-  
-  .paginationBullet {
-    border-radius: 50%;
-    padding: 5px 10px;
-    background-color: #adb5bd;
-    color: rgb(188, 172, 172);
-    list-style: none;
-    cursor: pointer;
-  }
   
   .paginationStock button {
-    border-radius: 50%;
-    background-color: #081012;
-    color: white;
+    border-radius: 10%;
+    background-color: #263e44;
+    color: rgb(255, 255, 255);
     border: none;
-    padding: 5px 15px;
+    padding: 2vh 2.5vh 2vh 2.5vh;
     cursor: pointer;
     list-style: none;
   }
@@ -89,7 +72,7 @@
   }
 
   .table td,.table th{
-    padding: 12px 15px;
+    padding: 2vh 2.5vh 2vh 2.5vh;;
     border: 1px solid black;
     text-align: center;
     font-size: 16px;
