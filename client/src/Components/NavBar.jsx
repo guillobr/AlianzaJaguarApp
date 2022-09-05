@@ -17,23 +17,36 @@ import titulo from "../img/LogoTitulo.png"
 
 export default function NavBar(){
   const {isAuthenticated} = useAuth0()
+  const toggleButton = document.getElementsByClassName('toggle')[0]
+  const containerLink = document.getElementsByClassName('containerLink')[0]
+
+  // function ontoggleButton.addEventListener('click',()=>{
+  //   containerLink.classList.toggle('active')
+  // })
 
   return(
     <div className={styles.c}>
     <div className={styles.container} >
         {/* <h2 className={styles.title} > Alianza TriNacional Jaguar</h2> */}
         <img className={styles.titlePic} src={titulo} alt=''/>
+        <a href='a' className={styles.toggle} >
+          <span  className={styles.bar} ></span>
+          <span  className={styles.bar} ></span>
+          <span  className={styles.bar} ></span>
+        </a>
+        <div className={styles.containerLink}>
         <Link to="/aboutUs"className={styles.link}>
           QUIENES SOMOS
         </Link>
         <Link to="/aboutUs"className={styles.link}>
           PROYECTOS
         </Link>
-        <div  className={styles.imgcontainer}>
+        </div>
+        {/* <div  className={styles.imgcontainer}>
           <img src={arg} alt='' className={styles.img}/>
           <img src={bol} alt='' className={styles.img}/>
           <img src={par} alt='' className={styles.img}/>
-        </div>
+        </div> */}
       </div>
       <div className={styles.cline}>
       <hr className={styles.line}></hr> 
