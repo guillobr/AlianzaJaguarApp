@@ -1,11 +1,16 @@
 import React from "react";
 import { Popup } from "react-leaflet";
+import { Link } from "react-router-dom";
 
 const MarkerPopup = (props) => {
-  const { name } = props.data;
+  const { data } = props;
+  console.log('data:',data)
+  
   return (
     <Popup>
-      <div>{name}</div>
+      <Link to={`/sightingID/${data}`}>
+          {data}
+      </Link>
     </Popup>
   );
 };

@@ -206,6 +206,11 @@ export default function SightingData(props) {
               <ByType/>
               <ByObservador/>
       </div>
+      <div>
+      <Link className={styles.link} to='/mapview'>
+          MAPA
+        </Link>
+      </div>
     </div>
   ) : (
     <div>
