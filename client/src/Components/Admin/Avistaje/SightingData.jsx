@@ -18,10 +18,12 @@ import ByName from '../SearchBar/ByName'
 import ByScientificName from '../SearchBar/ByScientificName'
 import ByType from '../SearchBar/ByType'
 import ByObservador from '../SearchBar/ByObservador'
+import { Visibility } from '@mui/icons-material'
 import styles from '../../../Styles/sightingData.module.css'
 import style  from '../../../Styles/select.module.css'
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { Visibility } from '@mui/icons-material'
+
+
 
 
 
@@ -52,7 +54,7 @@ export default function SightingData(props) {
 
   //------------PAGINADO
   const [currentPage, setCurrentPage] = useState(1)
-  const [rows, setRows] = useState(10)
+  const [rows, setRows] = useState(30)
   const [pageNumberLimit, setPageNumberLimit] = useState(5)
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
   const [minPageNumberLmit, setMinPageNumberLmit] = useState(0)
@@ -105,10 +107,10 @@ export default function SightingData(props) {
   //-------------------------------------------------------------------
 
 
-  return sightings.length > 0 ? (
+  return currentItems.length > 0 ? (
     <div className={styles.containerAll}>
       <h1>Control de Registros de Avistaje</h1>
-      <div>
+      <div className={styles.containerLink}>
         <Link className={styles.link} to='/admin'>
           PANEL DE ADMINISTRADOR
         </Link>
@@ -124,17 +126,29 @@ export default function SightingData(props) {
           <thead>
             <tr>
               <th>Detalle</th>
-              <th>Pais</th>
-              <th>Localidad</th>
-              <th>Fecha</th>
-              <th>Hora</th>
+              <th><ByCountry/></th>
+              <th><ByPlace/></th>
+              <th>
+                <select className={style.select}  onChange={(e) => handleOrderByDate(e)} defaultValue='default'>
+                  <option value='default'>Orden por Fecha</option>
+                  <option value='Nuevos'>Nuevos</option>
+                  <option  value='Viejos'>Viejos</option>
+                </select>
+              </th>
+              <th>
+                <select  className={style.select} onChange={(e) => handleOrderByName(e)}defaultValue='default'>
+                  <option value='default'>Orden por Hora</option>
+                  <option value='Nuevos'>0-24</option>
+                  <option value='Viejos'>24-0</option>
+                </select>
+              </th>
               <th>Altitud</th>
               <th>Ubicacion</th>
               <th>Ubicacion Manual</th>
-              <th>Nombre Comun</th>
-              <th>Nombre Cientifico</th>
-              <th>Tipo de Registro</th>
-              <th>Observador</th>
+              <th><ByName/></th>
+              <th><ByScientificName/></th>
+              <th> <ByType/></th>
+              <th><ByObservador/></th>
               <th>Otro</th>
             </tr>
           </thead>
@@ -189,12 +203,43 @@ export default function SightingData(props) {
             </li>
           </ul>
         } */}
-      <div className={styles.containerUser}>
+
+        <div className={styles.cantReg}>
+          <span>Cantidad de Registros : 
+        &nbsp; </span>
+          <span>{sightings.length}</span>
+             {
+          <ul className={styles.paginationStock}>
+            <li>
+              <button
+                onClick={handlePrevbtn}
+                disabled={currentPage === pages[0] ? true : false}
+              >
+                {'<'}
+              </button>
+            </li>
+            {renderPageNumbers}
+            <li>
+              <button
+                onClick={handleNextbtn}
+                disabled={
+                  currentPage === pages[pages.length - 1] ? true : false
+                }
+              >
+                {'>'}
+              </button>
+            </li>
+          </ul>
+        }
+        </div>
+
+
+     {/*  <div className={styles.containerUser}>
               <ByCountry/>
               <ByPlace/>
               {/* <ByDate/>
               <ByTime/> */}
-              <select  className={style.select} onChange={(e) => handleOrderByName(e)}defaultValue='default'>
+              {/* <select  className={style.select} onChange={(e) => handleOrderByName(e)}defaultValue='default'>
                 <option value='default' disabled>Orden por Hora</option>
                 <option value='Nuevos'>0-24</option>
                 <option value='Viejos'>24-0</option>
@@ -204,12 +249,14 @@ export default function SightingData(props) {
                 <option value='default' disabled>Orden por Fecha</option>
                 <option value='Nuevos'>Nuevos</option>
                 <option  value='Viejos'>Viejos</option>
-              </select>
-              <ByName/>
+              </select> */}
+              {/* <ByName/>
               <ByScientificName/>
               <ByType/>
-              <ByObservador/>
-      </div>
+              <ByObservador/> */}
+      {/* </div> */} 
+
+
       <div>
       <Link className={styles.link} to='/mapview'>
           MAPA

@@ -31,6 +31,7 @@ import PoachingDetails from './Components/Admin/Traffic/PoachingDetails';
 import MapView from './Components/Map/MapView';
 import AboutUs from './Components/AboutUs';
 import BottomBar from './Components/BottomBar';
+import MapDetail from './Components/Map/MapDetail';
 
 
 function App() {
@@ -154,6 +155,19 @@ function App() {
                 }
               >
                 <PutPoaching />
+              </ProtectedRoute>
+            }
+          />
+             <Route
+            path='/mapDetail/:id'
+            element={
+              <ProtectedRoute
+                redirectPath='/'
+                isAllowed={
+                  usuario.length === 1 && usuario[0].isSuperAdmin === true
+                }
+              >
+                <MapDetail />
               </ProtectedRoute>
             }
           />

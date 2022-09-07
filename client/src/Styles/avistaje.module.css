@@ -17,16 +17,45 @@
     font-size: 2rem;
   }
 
-  .containerForm {
-    display: flex;
-    flex-direction: column;
+  /* .containerForm {
+    display: block;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
     background-color: #ffffff;
     padding: 3rem;
     border-radius: 10px;
+    border:2px solid black
+  } */
+
+  .containerForm{
+    align-items: center;
+    justify-content: center;
+
   }
+
+  .containerColumns{
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+  padding: 3rem;
+    border-radius: 10px;
+    border:2px solid black;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin:3rem
+}
+
+
+  .containerFrom #left, #right { 
+    width: 40%; 
+    margin:5px; 
+    padding: 1em; 
+    background: white; 
+  } 
   
   .containerForm div {
     width: 50%;

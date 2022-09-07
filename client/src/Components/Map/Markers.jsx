@@ -25,13 +25,16 @@ export default function Markers(props){
   const ubicacion = sightings.map(s=>{
     return (
       {
+      id:s._id,
       lat:s.geometry[0],
       lng:s.geometry[1]
     })
   })
+  console.log('u,',ubicacion)
 
   const ubicacionManual = sightings.map(s=>{
     return{
+      id:s._id,
       lat:s.geo[0],
       lng:s.geo[1]
     }
@@ -39,20 +42,20 @@ export default function Markers(props){
   console.log('umanual,',ubicacionManual)
 
   useEffect(() => {
-    totalU.push(ubicacion)
+    ubicacion.concat(ubicacionManual)
   }, [ubicacion])
 
-  useEffect(() => {
-    totalU.push(ubicacionManual)
-  }, [ubicacionManual])
+  // useEffect(() => {
+  //   totalU.concat(ubicacionManual)
+  // }, [totalU])
 
 
-  console.log('T:',totalU)
+  console.log('Total:',ubicacion)
  
    
-    const markers = sightings.map((s, _id) => (
-      <Marker key={_id} position={s.geometry} icon={IconLocation}>
-        <MarkerPopup data={s._id} />
+    const markers = ubicacion.map((u, _id) => (
+      <Marker key={_id} position={u} icon={IconLocation}>
+        <MarkerPopup data={u._id} />
       </Marker>
     ));
     return <>{markers}</>;

@@ -251,7 +251,8 @@ const type = [
     <div className={styles.avistaje} >
       <h1 className={styles.titleForm}>Reportar Avistaje</h1>
       <form className={styles.containerForm}  onSubmit={(e) => handleSubmit(e)}>
-  
+        <div className={styles.containerColumns}>
+      <div id='right'>
         <div>
          <label>Pais:</label>
          <select onChange={(e) => handleCountries(e)} defaultValue='default'>
@@ -326,6 +327,8 @@ const type = [
                 ))}
             </select>
         </div>
+        </div>
+        <div id='left'>
 
         <div>
         <label>Tipo de Registro:</label>
@@ -388,12 +391,17 @@ const type = [
             name='other'
             onChange={(e) => handleChange(e)}
           />
+          </div>
+        </div>
         </div>
 
         <button classname={styles.button} type='submit'>
           AGREGAR AVISTAJE
         </button>
+
       </form>
+
+       
 
       <Link to='/'>
         <button className={`${styles.btnAdmin}`}>↼ Atras</button>

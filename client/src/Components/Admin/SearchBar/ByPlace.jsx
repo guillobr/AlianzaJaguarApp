@@ -3,8 +3,9 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getSightingPlace } from '../../../actions'
-import styles from '../../../Styles/refreshButton.module.css'
-import style from '../../../Styles/input.module.css'
+import styles from '../../../Styles/contFilters.module.css'
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const ByPlace = () => {
   const [input, setInput] = useState('')
@@ -29,10 +30,10 @@ const ByPlace = () => {
 }
 
   return (
-    <div>
+    <div className={styles.contFilters}>
       <div>
       <input
-      className={style.input}
+      className={styles.input}
         type='text'
         placeholder='Localidad'
         value={input}
@@ -42,11 +43,11 @@ const ByPlace = () => {
       </div>
       <div>
       <button
-      className={styles.btn}
+     className={styles.btn}
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >
-        Buscar
+        <SearchIcon sx={{ fontSize: '32px', color: 'black', "& :hover": { color: "#ef5350" } }} />
       </button>
       </div>
     </div>

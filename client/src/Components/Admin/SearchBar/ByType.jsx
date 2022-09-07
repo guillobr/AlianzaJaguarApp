@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getSightingType} from '../../../actions'
-import styles from '../../../Styles/refreshButton.module.css'
-import style from '../../../Styles/select.module.css'
+import styles from '../../../Styles/contFilters.module.css'
+import SearchIcon from '@mui/icons-material/Search';
 
 const ByType = () => {
 
@@ -34,11 +34,11 @@ const ByType = () => {
 
 
   return (
-    <div>
+    <div className={styles.contFilters}>
      
      <div>
-            <select className={style.select} onChange={(e) => handleTypes(e)} defaultValue='default'>
-            <option value='default' disabled>Tipo de Registro</option>
+            <select className={styles.select} onChange={(e) => handleTypes(e)} defaultValue='default'>
+            <option value='default'>Tipo de Registro</option>
             {type &&
                 type.map((type) => (
                 <option key={type} value={type}>
@@ -52,7 +52,7 @@ const ByType = () => {
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >
-        Buscar
+        <SearchIcon sx={{ fontSize: '32px', color: 'black', "& :hover": { color: "#ef5350" } }} />
       </button>
     </div>
   )

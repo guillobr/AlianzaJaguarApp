@@ -27,33 +27,64 @@ export default function SightingDetails(){
     return(
         
         <div className={styles.container}>
-        <Link className={styles.link} to='/sightingData'>
-        PANEL DE REGISTROS
-        </Link>
-            <h1 className={styles.title} >Detalles de Avistaje</h1>
-            <div className={styles.p}>
-        <p >Pais: {sightingDetail.country}</p>
-        <p >Localidad: {sightingDetail.place}</p>
-        <p>Ubicacion: {sightingDetail.geometry}</p>
-        <p>UbicaionManual: {sightingDetail.geo}</p>
-        <p >Fecha: {sightingDetail.date}</p>
-        <p >Hora: {sightingDetail.time}</p>
-        <p >Altitud: {sightingDetail.altitud}</p>
-        <p >Nonbre Comun: {sightingDetail.name}</p>
-        <p >Nombre Cientifico: {sightingDetail.scientistname}</p>
-        <p >Tipo de Registro: {sightingDetail.type}</p>
-        <p >Observador: {sightingDetail.observador}</p>
-        <p >Otro: {sightingDetail.otro}</p>
+          <Link className={styles.link} to='/sightingData'>
+          PANEL DE REGISTROS
+          </Link>
+            <h1 className={styles.title} >Detalles del Registro</h1>
+        <div className={styles.planilla}>
+              <span className={styles.header}>ID : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail._id}</span>
+            <hr></hr>
+              <span className={styles.header}>Pais : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.country}</span>
+            <hr></hr>
+              <span  className={styles.header}>Localidad : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.place}</span>
+            <hr></hr>
+              <span  className={styles.header}>Ubicacion : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.geometry}</span>
+            <hr></hr>
+              <span  className={styles.header}>Ubicacion Manual : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.geo}</span>
+            <hr></hr>
+              <span className={styles.header}>Fecha : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.date}</span>
+            <hr></hr>
+              <span className={styles.header}>Hora : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.time}</span>
+            <hr></hr>
+              <span className={styles.header}>Altitud : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.altitud}</span>
+            <hr></hr>
+              <span className={styles.header}>Nombre Comun : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.name}</span>          
+            <hr></hr>
+              <span className={styles.header}>Nombre Cientifico : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.scientistname}</span>
+            <hr></hr>
+              <span className={styles.header}>Tipo de Registro : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.type}</span>
+            <hr></hr>
+              <span className={styles.header}>Observador : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.observador}</span>
+            <hr></hr>
+              <span className={styles.header}>Otro : &nbsp;</span>
+              <span className={styles.data}>{sightingDetail.otro}</span>
+        </div>
         <div>
-          <button className={styles.button} onClick={() => handleDeleteSighting(id)}>
+        <button className={styles.button} onClick={() => handleDeleteSighting(id)}>
           ELIMINAR
           </button>
           <Link className={styles.link}  to={`/putSighting/${id}`}>
           MODIFICAR
           </Link> 
+
+          <Link className={styles.link} to={`/mapDetail/${sightingDetail._id}`}>
+            Ver en el Mapa
+           </Link>
         </div>
       </div>
-        </div>
+       
     )
 
 }

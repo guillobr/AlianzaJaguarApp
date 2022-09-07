@@ -3,8 +3,9 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getSightingScientificName } from '../../../actions'
-import styles from '../../../Styles/refreshButton.module.css'
-import style  from '../../../Styles/select.module.css'
+import styles from '../../../Styles/contFilters.module.css'
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const ByName = () => {
 
@@ -88,11 +89,11 @@ const ByName = () => {
 
 
   return (
-    <div>
+    <div className={styles.contFilters}>
      
      <div>
-            <select className={style.select} onChange={(e) => handleScientistNames(e)} defaultValue='default'>
-            <option value='default' disabled>Nombre Cientifico</option>
+            <select className={styles.select} onChange={(e) => handleScientistNames(e)} defaultValue='default'>
+            <option value='default'>Nombre Cientifico</option>
             {scientistname &&
                 scientistname.map((scientistname) => (
                 <option key={scientistname} value={scientistname}>
@@ -106,7 +107,7 @@ const ByName = () => {
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >
-        Buscar
+        <SearchIcon sx={{ fontSize: '32px', color: 'black', "& :hover": { color: "#ef5350" } }} />
       </button>
     </div>
   )

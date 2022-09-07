@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getSightingName } from '../../../actions'
-import styles from '../../../Styles/refreshButton.module.css'
-import style from '../../../Styles/select.module.css'
+import styles from '../../../Styles/contFilters.module.css'
+import SearchIcon from '@mui/icons-material/Search';
 
 const ByName = () => {
 
@@ -40,11 +40,11 @@ const ByName = () => {
 
 
   return (
-    <div>
+    <div className={styles.contFilters}>
      
      <div>
-            <select className={style.select} onChange={(e) => handleNames(e)} defaultValue='default'>
-            <option value='default' disabled>Nombre comun</option>
+            <select className={styles.select} onChange={(e) => handleNames(e)} defaultValue='default'>
+            <option value='default'>Nombre comun</option>
             {name &&
                 name.map((name) => (
                 <option key={name} value={name}>
@@ -54,11 +54,11 @@ const ByName = () => {
             </select>
         </div>
       <button
-      className={styles.btn} 
+     className={styles.btn} 
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >
-        Buscar
+       <SearchIcon sx={{ fontSize: '32px', color: 'black', "& :hover": { color: "#ef5350" } }} />
       </button>
     </div>
   )

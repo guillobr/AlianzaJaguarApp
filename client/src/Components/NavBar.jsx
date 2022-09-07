@@ -13,8 +13,6 @@ import par from "../img/PAR1.png"
 import titulo from "../img/LogoTitulo.png"
 
 
-
-
 export default function NavBar(){
   const {isAuthenticated} = useAuth0()
   const toggleButton = document.getElementsByClassName('toggle')[0]
@@ -35,6 +33,9 @@ export default function NavBar(){
           <span  className={styles.bar} ></span>
         </a>
         <div className={styles.containerLink}>
+        <Link to="/"className={styles.link}>
+          INICIO
+        </Link>
         <Link to="/aboutUs"className={styles.link}>
           QUIENES SOMOS
         </Link>
