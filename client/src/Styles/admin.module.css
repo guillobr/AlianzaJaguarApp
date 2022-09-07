@@ -1,4 +1,4 @@
-.admin {
+/* .admin {
       background-color: rgb(238, 238, 238);
       min-height: 120vh;
       display: flex;
@@ -8,6 +8,8 @@
       font-size: calc(0.6rem + 1vw);
      
   }
+
+
   .click{
     display: flex;
     flex-direction: column;
@@ -70,4 +72,108 @@
         color:white
       }
     }
+ */
+
+
+      /* con imagen */
+  .admin {
+    background-image:url('https://pbs.twimg.com/media/FI5oUjrXsAA9i3n.jpg'); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+    background-size:cover;
+    background-position:center;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(1rem + 1vw);
+    height: calc(100vh - 20vh);
+    width: 100%;
+}
+
+.linkContainers{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 6vh
+
+}
+
+.linkCont{
+  
+  margin: 3vh
+
+}
+
+
+.link {
+  background-color:  rgba(113, 115, 119, 0.747);
+  border: solid;
+  border-color: rgb(20, 26, 39);
+  color: rgb(255, 255, 255);
+  padding: 2vh 3vh;
+  text-align: center;
+  text-decoration: none;
+  font-family:Arial, Helvetica, sans-serif;
+  border-radius: 10px;
+  height: 3vh;
+  width: 5.5vw;
+  font-size:1.1rem
+}
+
+.link:hover{
+  background-color: rgb(20, 26, 39);
+  color:white
+}
+
+@media (max-width: 500px){
+  
+  .link {
+    background-color:  rgba(113, 115, 119, 0.747);
+    border: solid;
+    border-color: rgb(20, 26, 39);
+    color: rgb(255, 255, 255);
+    padding: 2vh 3vh;
+    text-align: center;
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    height: 10vh;
+    width: 5.5vw;
+    font-size:1rem
+  }
+
+  .link:hover{
+    background-color: rgb(20, 26, 39);
+    color:white
+  }
+}
+
+@media (max-width: 420px){
+  
+  .link {
+    background-color:  rgba(113, 115, 119, 0.747);
+    border: solid;
+    border-color: rgb(20, 26, 39);
+    color: rgb(255, 255, 255);
+    padding: 2vh 3vh;
+    text-align: center;
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    height: 10vh;
+    width: 5.5vw;
+    font-size:0.8rem
+  }
+
+  .link:hover{
+    background-color: rgb(20, 26, 39);
+    color:white
+  }
+}
+
   

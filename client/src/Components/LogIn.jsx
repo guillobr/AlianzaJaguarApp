@@ -7,7 +7,7 @@ export default function LogInButton(){
 
   const {loginWithRedirect} = useAuth0()
 
-  return <button onClick={()=>loginWithRedirect()}  className={styles.link} >LOGIN</button>
+  return <button onClick={()=>loginWithRedirect()}  className={styles.btn} >LOGIN</button>
 
 
 }

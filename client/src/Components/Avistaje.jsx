@@ -390,7 +390,7 @@ const type = [
           />
         </div>
 
-      <button classname={styles.button} type='submit'>
+        <button classname={styles.button} type='submit'>
           AGREGAR AVISTAJE
         </button>
       </form>

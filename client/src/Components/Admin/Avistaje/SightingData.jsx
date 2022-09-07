@@ -20,6 +20,8 @@ import ByType from '../SearchBar/ByType'
 import ByObservador from '../SearchBar/ByObservador'
 import styles from '../../../Styles/sightingData.module.css'
 import style  from '../../../Styles/select.module.css'
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { Visibility } from '@mui/icons-material'
 
 
 
@@ -116,11 +118,12 @@ export default function SightingData(props) {
         {/* <AdminRefreshUsers />
         <AdminSearchBarUser /> */}
       </div>
-      <div className={styles.containerTable__Pagination}>
+      <div className={styles.containerTable}>
+        <div className={styles.wrapperTable}>
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>id</th>
+              <th>Detalle</th>
               <th>Pais</th>
               <th>Localidad</th>
               <th>Fecha</th>
@@ -137,11 +140,11 @@ export default function SightingData(props) {
           </thead>
 
           <tbody>
-            {currentItems.map((s) => (
+            {sightings.map((s) => (
               <tr key={s._id}>
                 <td>
                   <Link className={styles.linkTabla} to={`/sightingID/${s._id}`}>
-                    {s._id}
+                   <Visibility sx={{ fontSize: '32px', color: 'black', "& :hover": { color: "#ef5350" } }} />
                   </Link>
                 </td>
 
@@ -161,8 +164,9 @@ export default function SightingData(props) {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
-      {
+      {/* {
           <ul className={styles.paginationStock}>
             <li>
               <button
@@ -184,7 +188,7 @@ export default function SightingData(props) {
               </button>
             </li>
           </ul>
-        }
+        } */}
       <div className={styles.containerUser}>
               <ByCountry/>
               <ByPlace/>

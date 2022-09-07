@@ -1,4 +1,4 @@
-.home {
+/* .home {
     background-color: rgb(238, 238, 238);
     min-height: 120vh;
     display: flex;
@@ -6,55 +6,52 @@
     align-items: center;
     justify-content: center;
     font-size: calc(0.6rem + 1vw);
-}
-
-/* .home {
-  background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwIejlIh8b7nZrJ84RCxDrGmNbo0i6fS48DA&usqp=CAU');
+} */
+ 
+.home {
+    background-image:url('https://pbs.twimg.com/media/FI5oUjrXsAA9i3n.jpg'); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+    background-size:cover;
+    background-position:center;
     min-height: 120vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    background-size: 100vw 100vh;
-    height: 100vh;
+    height: calc(100vh - 20vh);
     width: 100%;
    
-} */
+} 
 
 
   .link {
-    background-color:  rgba(20, 26, 39, 0);
+    background-color:  rgba(113, 115, 119, 0.747);
     border: solid;
     margin: 2.5vh;
     border-color: rgb(20, 26, 39);
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding: 2vh 3vh;
     text-align: center;
     text-decoration: none;
-    font-weight: bold;
     font-family:Arial, Helvetica, sans-serif;
-    display: inline-block;
-    border-radius: 5px;
+    border-radius: 10px;
+    height: 3vh;
+    width: 5.5vw;
+    font-size:1.1rem
   }
 
   .link:hover{
     background-color: rgb(20, 26, 39);
     color:white
   }
+  
+  
 
-  .button {
-    background-color: #efefef00;
-    border: solid;
-    margin: 2.5vh;
-    border-color: rgb(20, 26, 39);
-    color: rgb(20, 26, 39);
-    padding: 2vh 3vh;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-  }
+  
 
   @media (max-width: 500px){
     .home{
@@ -65,6 +62,24 @@
     align-items: center;
     justify-content: center;
     font-size: calc(0.6rem + 1vw);
+    }
+
+    .link {
+      background-color:  rgba(113, 115, 119, 0.747);
+      border: solid;
+      border-color: rgb(20, 26, 39);
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      font-family:Arial, Helvetica, sans-serif;
+      display: inline-block;
+      border-radius: 10px;
+      height: 1vh;
+      width: 21vw;
+      font-size:0.9rem;
+      align-items: center;
+      justify-self: center;
+      font-weight: bold;
+      
     }
   }
 

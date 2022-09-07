@@ -7,9 +7,9 @@ import { Admin } from "./Admin/Admin";
 import { Link } from "react-router-dom";
 import logo from "../img/Logo.jpg"
 import styles from "../Styles/navbar.module.css"
-import arg from "../img/Flag_of_Argentina.png"
-import bol from "../img/Bandera_de_Bolivia_(Estado).png"
-import par from "../img/paraguay.png"
+import arg from "../img/ARG1.png"
+import bol from "../img/BOL1.png"
+import par from "../img/PAR1.png"
 import titulo from "../img/LogoTitulo.png"
 
 
@@ -41,12 +41,22 @@ export default function NavBar(){
         <Link to="/aboutUs"className={styles.link}>
           PROYECTOS
         </Link>
+        <Link to="/aboutUs"className={styles.link}>
+          CONTACTO
+        </Link>
         </div>
-        {/* <div  className={styles.imgcontainer}>
-          <img src={arg} alt='' className={styles.img}/>
-          <img src={bol} alt='' className={styles.img}/>
-          <img src={par} alt='' className={styles.img}/>
-        </div> */}
+        <div  className={styles.imgcontainerALL}>
+          <div className={styles.imgcont}>
+            <img src={arg} alt='' className={styles.img}/>
+          </div>
+          <div className={styles.imgcont}>
+            <img src={bol} alt='' className={styles.imgBol}/>
+          </div>
+          <div className={styles.imgcont}>
+            <img src={par} alt='' className={styles.imgPar}/>
+          </div>
+          
+        </div>
       </div>
       <div className={styles.cline}>
       <hr className={styles.line}></hr> 

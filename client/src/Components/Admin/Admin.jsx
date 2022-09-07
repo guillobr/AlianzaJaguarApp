@@ -21,23 +21,18 @@ export function Admin() {
     <div className={styles.admin}>
       <div>
         {isAuthenticated?<>
-              {/* <Profile/> */}
-              {/* <Link to="/admin">
-              Administrador
-              </Link> */}
-              
               <LogOutButton/>
               </>:<LogInButton/>}
-        </div>
-        <div>
+      </div>
+      <div>
             {usuario.length?
-            <div className={styles.click}>
-              <div>
+            <div className={styles.linkContainers}>
+              <div className={styles.linkCont} >
                 <Link to='/sightingData' className={styles.link}>
                  REGISTRO DE AVISTAJES
                 </Link> 
               </div>
-              <div>
+              <div className={styles.linkCont} >
                 <Link to='/trafficData' className={styles.link}>
                   REGISTRO DE TRAFICO
                 </Link> 

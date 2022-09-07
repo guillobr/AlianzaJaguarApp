@@ -39,47 +39,76 @@
     color:white
   }
 
-  .containerTable__Pagination {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 40vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
+  .containerTable {
+    border:0.1vh black solid;
+    box-shadow:  0px 0px 3px rgba(0, 0, 0, 0.9)e;
+    border-radius: 4px;
+    max-width: fit-content;
+    max-height: fit-content;
   }
 
-  .paginationStock {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    list-style: none;
+  .wrapperTable{
+    margin:20vh;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height: fit-content;
+    max-height: 66.4vh;
+    max-width: 90vw;
+    margin-top: 2vh;
+    margin: 1vw;
+    padding-bottom: 2vh;
+    
+   
+    
   }
 
-  
-  .paginationStock button {
-    border-radius: 10%;
-    background-color: #263e44;
-    color: rgb(255, 255, 255);
-    border: none;
-    padding: 2vh 2.5vh 2vh 2.5vh;
-    cursor: pointer;
-    list-style: none;
-  }
-
+ 
   .table{
-    width: 100%;
     border-collapse :collapse;
+    min-width: max-content;
+    
+     
   }
 
   .table td,.table th{
     padding: 2vh 2.5vh 2vh 2.5vh;;
-    border: 1px solid black;
+    border: 1px solid rgb(118, 111, 111);
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
   }
+
 .table th{
-    background-color: rgb(20, 26, 39);
-    color:#ffffff
+    background-color: 	#c0c0c083;
+    color:#000000;
+    text-align: bold;
+    position: sticky;
+    top:0px;
+    font-weight: bold;
+    outline: 0.7px solid black;
+    border: 1.5px solid black;
+}
+
+.table td {
+  text-align: left;
+  font-size: 0.9rem;
+  border: 1px solid rgb(177, 177, 177);
+  padding-left: 1vw;
+}
+
+.table th:first-child{
+  position: sticky;
+  left:0px;
+  background: #959393;
+  z-index: 1;
+}
+
+.table td:first-child{
+  position: sticky;
+  left:0;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+  outline:0;
+  max-height: 98vh;
+  overflow: auto;
 }
 
 .table tbody tr:nth-child(even){
@@ -87,9 +116,26 @@
 }
 
 
-.linkTabla{
-    text-decoration: none;
-    color:black
+
+
+
+
+.paginationStock {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+}
+
+
+.paginationStock button {
+  border-radius: 10%;
+  background-color: #263e44;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 2vh 2.5vh 2vh 2.5vh;
+  cursor: pointer;
+  list-style: none;
 }
   /* responsive */
 

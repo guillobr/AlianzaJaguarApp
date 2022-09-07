@@ -11,6 +11,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Admin } from './Admin/Admin'
 import fondo from "../img/fondo.jpg"
 import BottomBar from './BottomBar'
+import jaguar1 from "../img/jaguar1.png"
 
 export default function Home(){
     const dispatch = useDispatch()
@@ -22,27 +23,24 @@ export default function Home(){
 
     return (
         <div className={styles.home}>
-        
-          
+      
           {usuario.length?
             <div>
-             
               <div>
-            <Link className={styles.link} to='/admin'>
-            PANEL DE ADMINISTRADOR
-            </Link> 
-            </div>
+                <Link className={styles.link} to='/admin'>
+                    ADMINISTRADOR
+                </Link> 
+              </div>
             </div>
             :''}
-      
-           <Link className={styles.link} to="/avistaje">
+
+          <Link className={styles.link} to="/avistaje">
             AVISTAJE
-            </Link>
-            <Link className={styles.link} to="/poaching">
+          </Link>
+
+          <Link className={styles.link} to="/poaching">
             TRAFICO
-            </Link>
-             
-         
+          </Link>
         </div>
       ); 
 }
