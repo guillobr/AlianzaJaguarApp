@@ -93,21 +93,23 @@ export default function Poaching(){
 
   return (
     <div className={styles.poaching}>
-      <h1 className={styles.titleForm}>REPORTAR VENTA O TRAFICO DE VIDA SILVESTRE</h1>
-      <form className={styles.containerForm} onSubmit={(e) => handleSubmit(e)}>
-       
-        <div>
-          <label>Pais:</label>
-         <select onChange={(e) => handleCountries(e)} defaultValue='default'>
-         <option value='default' disabled>Pais</option>
-         <option value='Argentina'>Argentina</option>
-         <option value='Bolivia'>Bolivia</option>
-         </select>
+       <div className={styles.body}>
+        <div className={styles.container}>
+          <div className={styles.title}>Reportar venta o Trafico de Vida Silvestre</div>
+      <form  onSubmit={(e) => handleSubmit(e)}>
+      <div className={styles.dataDetails}>
 
-        </div>
+          <div className={styles.iputBox}>
+            <span className={styles.details}>Pais:</span>
+            <select onChange={(e) => handleCountries(e)} defaultValue='default'>
+              <option value='default' disabled>Pais</option>
+              <option value='Argentina'>Argentina</option>
+              <option value='Bolivia'>Bolivia</option>
+            </select>
+          </div>  
         
-        <div>
-          <label>Sitio:</label>
+          <div className={styles.iputBox}>
+        <span className={styles.details}>Localidad:</span>
           <input
             type='text'
             value={post.place}
@@ -117,8 +119,8 @@ export default function Poaching(){
         </div>
 
            
-        <div>
-          <label>Fecha:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Fecha:</span>
           <input
             type='date'
             value={post.date}
@@ -127,8 +129,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Hora:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Hora:</span>
           <input
             type='time'
             value={post.time}
@@ -137,8 +139,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Cantidad de Puestos:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Cantidad de Puestos:</span>
           <input
             type='number'
             value={post.postsQuantity}
@@ -147,8 +149,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Fracuencia de Venta:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Frecuencia de Venta</span>
           <input
             type='text'
             value={post.postsFrecuency}
@@ -157,8 +159,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Tipo de Comercio:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Tipo de Comercio:</span>
           <input
             type='text'
             value={post.commercyType}
@@ -167,19 +169,18 @@ export default function Poaching(){
           />
         </div>
 
-       
-        <div>
-          <label>Estado del Comercio</label>
-         <select onChange={(e) => handleCommercyStatus(e)} defaultValue='default'>
-         <option value='default' disabled>Estado de comercio</option>
-         <option value='Abierto'>Abierto</option>
-         <option value='Cerrado'>Cerrado</option>
-         </select>
-
-        </div>
-
-        <div>
-          <label>Animales en Venta:</label>
+        <div className={styles.iputBox}>
+            <span className={styles.details}>Estado del Comercio</span>
+            <select onChange={(e) => handleCommercyStatus(e)} defaultValue='default'>
+              <option value='default' disabled>Pais</option>
+              <option value='Abierto'>Abierto</option>
+              <option value='Cerrado'>Cerrado</option>
+            </select>
+          </div>  
+        
+        
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Animales en Venta:</span>
           <textarea
             type='text'
             value={post.animal}
@@ -188,8 +189,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Condicion:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Condicion:</span>
           <textarea
             type='text'
             value={post.animalCondition}
@@ -198,8 +199,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Cantidad:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Cantidad:</span>
           <textarea
             type='text'
             value={post.quantity}
@@ -208,8 +209,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Precio:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Precio:</span>
           <textarea
             type='text'
             value={post.price}
@@ -218,8 +219,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Origen:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Origen:</span>
           <textarea
             type='text'
             value={post.origin}
@@ -228,8 +229,8 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Observador:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Observador:</span>
           <input
             type='text'
             value={post.observador}
@@ -238,27 +239,30 @@ export default function Poaching(){
           />
         </div>
 
-        <div>
-          <label>Otra Observacion:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Otra Observacion:</span>
           <textarea
             type='text'
             value={post.other}
             name='other'
             onChange={(e) => handleChange(e)}
           />
+          </div>
+
+        
+
+          <button className={styles.btn} type='submit'>
+              AGREGAR REGISTRO
+          </button>
         </div>
-
-       
-     
-
-        <button  classname={styles.button} type='submit'>
-          REGISTRAR
-        </button>
+        
       </form>
 
       <Link to='/'>
         <button className={`${styles.btnAdmin}`}>↼ Atras</button>
       </Link>
+      </div>
+      </div>
     </div>
   )
 }

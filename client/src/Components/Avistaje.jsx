@@ -253,7 +253,7 @@ const type = [
       <div className={styles.container}>
 
        <div className={styles.title}>Reportar Avistaje</div>
-      <form  action='#'  onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div className={styles.dataDetails}>
           <div className={styles.iputBox}>
             <span className={styles.details}>Pais:</span>
@@ -444,10 +444,11 @@ const type = [
         </div>
       </form>
 
-       </div>
-       {/* <Link to='/'>
+      <Link to='/'>
         <button className={`${styles.btnAdmin}`}>↼ Atras</button>
-      </Link> */}
+      </Link>
+
+       </div>
       </div>
     </div>
   )

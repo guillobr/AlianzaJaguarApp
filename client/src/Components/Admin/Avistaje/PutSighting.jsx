@@ -196,22 +196,25 @@ function handleTypes(e) {
 
   return (
     <div className={styles.avistaje}>
-      <h1 className={styles.titleForm} >Modifica el Registro</h1>
-      <form className={styles.containerForm} onSubmit={(e) => handleSubmit(e)}>
+      <div className={styles.body}>
+      <div className={styles.container}>
+      <div className={styles.title}>Modifica el Registro</div>
+
+      <form onSubmit={(e) => handleSubmit(e)}>
+      <div className={styles.dataDetails}>
         
-        <div>
-          <label>Pais</label>
-         <select onChange={(e) => handleCountries(e)} defaultValue='default'>
-         <option value='default' disabled>{sightingID[0].country}</option>
-         <option value='Argentina'>Argentina</option>
-         <option value='Bolivia'>Bolivia</option>
-         </select>
+      <div className={styles.iputBox}>
+            <span className={styles.details}>Pais:</span>
+            <select onChange={(e) => handleCountries(e)} defaultValue='default'>
+              <option value='default' disabled>{sightingID[0].country}</option>
+              <option value='Argentina'>Argentina</option>
+              <option value='Bolivia'>Bolivia</option>
+            </select>
+          </div>
 
-        </div>
 
-
-        <div>
-          <label>Localidad:</label>
+          <div className={styles.iputBox}>
+        <span className={styles.details}>Localidad:</span>
           <input
             type='text'
             value={post.place}
@@ -219,10 +222,9 @@ function handleTypes(e) {
             onChange={(e) => handleChange(e)}
           />
         </div>
-
            
-        <div>
-          <label>Fecha:{sightingID[0].date}</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Fecha:{sightingID[0].date}</span>
           <input
             type='date'
             value={post.date}
@@ -231,8 +233,9 @@ function handleTypes(e) {
           />
         </div>
 
-        <div>
-          <label>Hora:</label>
+
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Hora:</span>
           <input
             type='time'
             value={post.time}
@@ -241,8 +244,8 @@ function handleTypes(e) {
           />
         </div>
 
-        <div>
-          <label>Altitud:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Altitud:</span>
           <input
             type='text'
             value={post.altitud}
@@ -251,30 +254,12 @@ function handleTypes(e) {
           />
         </div>
 
-        <div>
-          <label>Ubicacion - Latidtud,Longitud</label>
-          <input
-            type='text'
-            value={post.geometry}
-            name='geometry'
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
 
-        <div>
-          <label>Ubicacion Manual - Latidtud,Longitud</label>
-          <input
-            type='text'
-            value={post.geo}
-            name='geo'
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-
-        <div>
-          <label>Nombre Comun</label>
+        
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Nombre Comun:</span>
             <select onChange={(e) => handleNames(e)} defaultValue='default'>
-            <option value='default' disabled>{sightingID[0].name}</option>
+            <option value='default' disabled>Nombre Comun</option>
             {name &&
                 name.map((name) => (
                 <option key={name} value={name}>
@@ -283,11 +268,10 @@ function handleTypes(e) {
                 ))}
             </select>
         </div>
-
-        <div>
-        <label>Nombre Cientifico</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Nombre Cientifico:</span>
             <select onChange={(e) => handleScientistNames(e)} defaultValue='default'>
-            <option value='default' disabled>{ sightingID[0].scientistname}</option>
+            <option value='default' disabled>Nombre Cientifico</option>
             {scientistname &&
                 scientistname.map((scientistname) => (
                 <option key={scientistname} value={scientistname}>
@@ -296,11 +280,10 @@ function handleTypes(e) {
                 ))}
             </select>
         </div>
-
-        <div>
-        <label>Tipo de Registro</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Tipo de Registro:</span>
             <select onChange={(e) => handleTypes(e)} defaultValue='default'>
-            <option value='default' disabled>{ sightingID[0].type}</option>
+            <option value='default' disabled>Tipo de Registro</option>
             {type &&
                 type.map((type) => (
                 <option key={type} value={type}>
@@ -309,9 +292,20 @@ function handleTypes(e) {
                 ))}
             </select>
         </div>
+      
 
-        <div>
-          <label>Observador:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Otra Observacion:</span>
+          <textarea
+            type='text'
+            value={post.other}
+            name='other'
+            onChange={(e) => handleChange(e)}
+          />
+          </div>
+
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Observador:</span>
           <input
             type='text'
             value={post.observador}
@@ -321,25 +315,51 @@ function handleTypes(e) {
         </div>
 
         <div>
-          <label>Otra Observacion:</label>
-          <textarea
+              <div className={styles.ubicacion}>Ubicacion</div>
+          </div>
+
+          <div className={styles.iputBox}></div>
+
+          <div className={styles.iputBox}>
+            <span className={styles.details}>Automatica:</span>
+            <input
+            placeholder='lat,long'
             type='text'
-            value={post.other}
-            name='other'
+            value={post.geometry}
+            name='geometry'
             onChange={(e) => handleChange(e)}
           />
+            
+              
+          </div>
+
+          <div className={styles.iputBox}>
+            <span className={styles.details}>Manual:</span>
+            <input
+            placeholder='lat, lng'
+            type='text'
+            value={post.geo}
+            name='geo'
+          />
+
+              
+          </div>
+
+
+
+
+          <button className={styles.btn} type='submit'>
+              MODIFICAR
+            </button>
+          
         </div>
-
-
-
-        <button classname={styles.button} type='submit'>
-          MODIFICAR REGISTRO
-        </button>
       </form>
 
       <Link className={`${styles.btnAdmin}`} to={`/sightingID/${id}`}>
       ↼ Atras
       </Link>
+      </div>
+      </div>
     </div>
   )
 }

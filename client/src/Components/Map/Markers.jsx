@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getSighting } from "../../actions";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 
 

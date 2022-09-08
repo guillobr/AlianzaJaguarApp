@@ -19,6 +19,7 @@ import ByCountryP from '../SearchBarTraffic/ByCountryP'
 import ByObservadorP from '../SearchBarTraffic/ByObservadorP'
 import styles from '../../../Styles/sightingData.module.css'
 import style  from '../../../Styles/select.module.css'
+import { Visibility } from '@mui/icons-material'
 
 
 
@@ -107,7 +108,7 @@ export default function TrafficData(props) {
   return poaching.length > 0 ? (
     <div  className={styles.containerAll}>
       <h1>Control de Registros de Trafico</h1>
-      <div>
+      <div className={styles.containerLink}>
         <Link className={styles.link} to='/admin'>
           Panel de Administrador
         </Link>
@@ -117,15 +118,28 @@ export default function TrafficData(props) {
         {/* <AdminRefreshUsers />
         <AdminSearchBarUser /> */}
       </div>
-      <div className={styles.containerTable__Pagination}>
+      <div  className={styles.containerTable}>
+       <div className={styles.wrapperTable}>
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>id</th>
-              <th>Pais</th>
-              <th>Localidad</th>
-              <th>Fecha</th>
-              <th>Hora</th>
+            <th>Detalle</th>
+              <th><ByCountryP/></th>
+              <th><ByPlaceP/></th>
+              <th>
+                <select className={style.select}  onChange={(e) => handleOrderByDate(e)} defaultValue='default'>
+                  <option value='default'>Orden por Fecha</option>
+                  <option value='Nuevos'>Nuevos</option>
+                  <option  value='Viejos'>Viejos</option>
+                </select>
+              </th>
+              <th>
+                <select  className={style.select} onChange={(e) => handleOrderByName(e)}defaultValue='default'>
+                  <option value='default'>Orden por Hora</option>
+                  <option value='Nuevos'>0-24</option>
+                  <option value='Viejos'>24-0</option>
+                </select>
+              </th>
               <th>Cantidad de Puestos</th>
               <th>Frecuencia de Venta</th>
               <th>Tipo de comercio</th>
@@ -144,7 +158,7 @@ export default function TrafficData(props) {
               <tr key={s._id}>
                 <td>
                   <Link  className={styles.linkTabla} to={`/poachingID/${s._id}`}>
-                    {s._id}
+                  <Visibility sx={{ fontSize: '32px', color: 'black', "& :hover": { color: "#ef5350" } }} />
                   </Link>
                 </td>
 
@@ -167,7 +181,12 @@ export default function TrafficData(props) {
           </tbody>
         </table>
       </div>
-      {
+
+      <div className={styles.cantReg}>
+          <span>Cantidad de Registros : 
+        &nbsp; </span>
+          <span>{poaching.length}</span>
+             {
           <ul className={styles.paginationStock}>
             <li>
               <button
@@ -190,29 +209,63 @@ export default function TrafficData(props) {
             </li>
           </ul>
         }
-      <div className={styles.containerUser}>
+        </div>
+
+
+
+
+
+
+
+      {/* {
+          <ul className={styles.paginationStock}>
+            <li>
+              <button
+                onClick={handlePrevbtn}
+                disabled={currentPage === pages[0] ? true : false}
+              >
+                {'<'}
+              </button>
+            </li>
+            {renderPageNumbers}
+            <li>
+              <button
+                onClick={handleNextbtn}
+                disabled={
+                  currentPage === pages[pages.length - 1] ? true : false
+                }
+              >
+                {'>'}
+              </button>
+            </li>
+          </ul>
+        } */}
+
+
+      {/* <div className={styles.containerUser}>
               <ByCountryP/>
               <ByPlaceP/>
               {/* <ByDate/>
               <ByTime/> */}
-              <select className={style.select} onChange={(e) => handleOrderByName(e)}defaultValue='default'>
+              {/* <select className={style.select} onChange={(e) => handleOrderByName(e)}defaultValue='default'>
                 <option value='default' disabled>Orden por Hora</option>
                 <option value='Nuevos'>0-24</option>
                 <option value='Viejos'>24-0</option>
-              </select>
+              </select> */}
 
-              <select className={style.select} onChange={(e) => handleOrderByDate(e)} defaultValue='default'>
+              {/* <select className={style.select} onChange={(e) => handleOrderByDate(e)} defaultValue='default'>
                 <option value='default' disabled>Orden por Fecha</option>
                 <option value='Nuevos'>Nuevos</option>
                 <option  value='Viejos'>Viejos</option>
-              </select>
-              <ByFrequencyP/>
+              </select> */}
+              {/* <ByFrequencyP/>
               <ByCommercyTypeP/>
               <ByCommercyStatusP/>
               <ByAnimalP/>
               <ByConditionP/>
-              <ByObservadorP/>
-            
+              <ByObservadorP/>      */}
+      {/* </div> */} 
+
       </div>
     </div>
   ) : (

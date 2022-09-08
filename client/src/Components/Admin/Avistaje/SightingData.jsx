@@ -147,7 +147,7 @@ export default function SightingData(props) {
               <th>Ubicacion Manual</th>
               <th><ByName/></th>
               <th><ByScientificName/></th>
-              <th> <ByType/></th>
+              <th><ByType/></th>
               <th><ByObservador/></th>
               <th>Otro</th>
             </tr>
