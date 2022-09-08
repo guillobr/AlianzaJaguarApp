@@ -249,21 +249,23 @@ const type = [
 
   return (
     <div className={styles.avistaje} >
-      <h1 className={styles.titleForm}>Reportar Avistaje</h1>
-      <form className={styles.containerForm}  onSubmit={(e) => handleSubmit(e)}>
-        <div className={styles.containerColumns}>
-      <div id='right'>
-        <div>
-         <label>Pais:</label>
-         <select onChange={(e) => handleCountries(e)} defaultValue='default'>
-          <option value='default' disabled>Pais</option>
-          <option value='Argentina'>Argentina</option>
-          <option value='Bolivia'>Bolivia</option>
-         </select>
-        </div>
+      <div className={styles.body}>
+      <div className={styles.container}>
+
+       <div className={styles.title}>Reportar Avistaje</div>
+      <form  action='#'  onSubmit={(e) => handleSubmit(e)}>
+        <div className={styles.dataDetails}>
+          <div className={styles.iputBox}>
+            <span className={styles.details}>Pais:</span>
+            <select onChange={(e) => handleCountries(e)} defaultValue='default'>
+              <option value='default' disabled>Pais</option>
+              <option value='Argentina'>Argentina</option>
+              <option value='Bolivia'>Bolivia</option>
+            </select>
+          </div>
         
-        <div>
-          <label>Sitio:</label>
+          <div className={styles.iputBox}>
+        <span className={styles.details}>Localidad:</span>
           <input
             type='text'
             value={post.place}
@@ -272,8 +274,8 @@ const type = [
           />
         </div>
  
-        <div>
-          <label>Fecha:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Fecha:</span>
           <input
             type='date'
             value={post.date}
@@ -282,8 +284,8 @@ const type = [
           />
         </div>
 
-        <div>
-          <label>Hora:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Hora:</span>
           <input
             type='time'
             value={post.time}
@@ -292,8 +294,8 @@ const type = [
           />
         </div>
 
-        <div>
-          <label>Altitud:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Altitud:</span>
           <input
             type='text'
             value={post.altitud}
@@ -302,8 +304,8 @@ const type = [
           />
         </div>
 
-        <div>
-        <label>Nombre Comun:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Nombre Comun:</span>
             <select onChange={(e) => handleNames(e)} defaultValue='default'>
             <option value='default' disabled>Nombre Comun</option>
             {name &&
@@ -315,8 +317,8 @@ const type = [
             </select>
         </div>
 
-        <div>
-        <label>Nombre Cientifico:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Nombre Cientifico:</span>
             <select onChange={(e) => handleScientistNames(e)} defaultValue='default'>
             <option value='default' disabled>Nombre Cientifico</option>
             {scientistname &&
@@ -327,11 +329,10 @@ const type = [
                 ))}
             </select>
         </div>
-        </div>
-        <div id='left'>
+     
 
-        <div>
-        <label>Tipo de Registro:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Tipo de Registro:</span>
             <select onChange={(e) => handleTypes(e)} defaultValue='default'>
             <option value='default' disabled>Tipo de Registro</option>
             {type &&
@@ -343,8 +344,8 @@ const type = [
             </select>
         </div>
 
-        <div>
-          <label>Observador:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Observador:</span>
           <input
             type='text'
             value={post.observador}
@@ -353,38 +354,8 @@ const type = [
           />
         </div>
 
-        <div>
-          <label>Ubicacion del avistamiento</label>
-            <h2 className={styles.h2}>OPCION 1 : Automatica </h2>
-              <h5 className={styles.h5}>* Para colocar la ubicacion de forma automatica debe aceptar el acceso a su ubicacion</h5>
-              <h3 className={styles.h3}>Latitud :</h3>
-              <h4 className={styles.h4}>{state.latitude}</h4>
-              <h3 className={styles.h3}>Longitud :</h3>
-              <h4 className={styles.h4}>{state.longitude}</h4>
-            <h2 className={styles.h2}>OPCION 2 : Manual</h2>
-              <h5 className={styles.h5}>* Si desea colocar la ubicacion de forma manual, el sistema solo acpetara valores en formato decimal. Ej: Latitud:-34.5901
-              Longitud:-58.3794</h5>
-              <div>
-                <label>Latitud:</label>
-                <input
-                  type='text'
-                  value={post.latitud}
-                  name='latitud'
-                  onChange={(e) => handleChange(e)}
-                />
-              </div>
-              <div>
-                <label>Longitud:</label>
-                <input
-                  type='text'
-                  value={post.longitud}
-                  name='longitud'
-                  onChange={(e) => handleChange(e)}
-                />
-              </div>
-        </div>
-        <div>
-          <label>Otra Observacion:</label>
+        <div className={styles.iputBox}>
+        <span className={styles.details}>Otra Observacion:</span>
           <textarea
             type='text'
             value={post.other}
@@ -392,20 +363,92 @@ const type = [
             onChange={(e) => handleChange(e)}
           />
           </div>
-        </div>
-        </div>
+          <div>
+              <div className={styles.ubicacion}>Ubicacion</div>
+          </div>
+          <div className={styles.iputBox}></div>
 
-        <button classname={styles.button} type='submit'>
-          AGREGAR AVISTAJE
-        </button>
+          <div className={styles.iputBox}>
+            <span className={styles.details}>Automatica:</span>
+            <input
+            placeholder='Latitud'
+            type='text'
+            value={state.latitude}
+            name='latitude'
+            onChange={(e) => handleChange(e)}
+          />
+             <input
+             placeholder='Longitud'
+            type='text'
+            value={state.longitude}
+            name='longitude'
+            onChange={(e) => handleChange(e)}
+          />
+              
+          </div>
 
-      </form>
+          <div className={styles.iputBox}>
+            <span className={styles.details}>Manual:</span>
+            <input
+            placeholder='Latitud'
+            type='text'
+            value={post.latitud}
+            name='latitud'
+          />
+             <input
+             placeholder='Longitud'
+             type='text'
+              value={post.longitud}
+             name='longitud'
+          />
+              
+          </div>
+          
+        {/* <div className={styles.ubicacion}>
+        <span className={styles.details}>Ubicacion:</span>
+            <span className={styles.details}>OPCION 1 : Automatica - * Para colocar la ubicacion de forma automatica debe aceptar el acceso a su ubicacion</span>
+        
+              <span className={styles.details}>Latitud :</span>
+              <div className={styles.inputBox}>{state.latitude}</div>
+              <span className={styles.details}>Longitud :</span>
+              <div className={styles.inputBox}>{state.longitude}</div>
+
+            <span className={styles.details}>OPCION 2 : Manual - * Si desea colocar la ubicacion de forma manual, el sistema solo acpetara valores en formato decimal. Ej: Latitud:-34.5901
+              Longitud:-58.3794</span>
+              
+              <span className={styles.details}>Latitud:</span>
+                <input
+                  type='text'
+                  value={post.latitud}
+                  name='latitud'
+                  onChange={(e) => handleChange(e)}
+                />
+              
+              <div>
+              <span className={styles.details}>Longitud:</span>
+                <input
+                  type='text'
+                  value={post.longitud}
+                  name='longitud'
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+        </div> */}
 
        
+       
+            <button className={styles.btn} type='submit'>
+              AGREGAR AVISTAJE
+            </button>
+          
+        </div>
+      </form>
 
-      <Link to='/'>
+       </div>
+       {/* <Link to='/'>
         <button className={`${styles.btnAdmin}`}>↼ Atras</button>
-      </Link>
+      </Link> */}
+      </div>
     </div>
   )
 }
