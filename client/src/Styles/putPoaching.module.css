@@ -1,12 +1,12 @@
 .poaching {
     background-color: rgb(255, 255, 255);
-      min-height: 300vh;
+      min-height: 400vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       font-size: calc(10px + 2vmin);
-      padding: 2rem 0;
+      padding: 3rem 0;
      
   }
   

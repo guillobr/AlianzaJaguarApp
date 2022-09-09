@@ -47,12 +47,27 @@
     text-decoration: none;
     font-weight: bold;
     font-family:'Times New Roman', Times, serif;
-    
+
 }
 
 .link:hover{
-    color:rgb(232, 160, 115)
+    color:#d08d57
 }
+
+/* .link:after{
+    content:'';
+    position: absolute;
+    background-color: #bfd057;
+    width:50px;
+    height: 3px;
+    left:0;
+   
+    transition: 0.3s;
+}
+
+.link:hover:after{
+    width:100%,
+} */
 
 
 .imgcontainerALL{

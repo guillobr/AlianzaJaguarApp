@@ -15,16 +15,16 @@ export default function BottomBar(){
                 <hr className={styles.line}></hr> 
             </div>    
             <div className={styles.container}>
-                <img src={logoBlack} alt='' className={styles.logoBlack}/>
+                <img src={logoBlack} alt='' className={styles.logoBlack} />
                 <div  className={styles.redes}>
                 <div>
-                <a href="https://www.instagram.com/" ><Instagram sx={{ fontSize: '32px', color: 'white' }} /></a>
+                <a href="https://www.instagram.com/" ><Instagram sx={{ fontSize: '32px', color: 'white', "& :hover": { color: "#f77c2b" } }} /></a>
                 </div>
                 <div>
-                <a href="https://www.facebook.com/"><Facebook sx={{ fontSize: '32px', color: 'white' }} /></a>
+                <a href="https://www.facebook.com/"><Facebook sx={{ fontSize: '32px', color: 'white', "& :hover": { color: "#f77c2b" } }} /></a>
                 </div>
                 <div>
-                <a href="https://www.facebook.com/"> <WhatsApp sx={{ fontSize: '32px', color: 'white' }} /></a>
+                <a href="https://www.facebook.com/"> <WhatsApp sx={{ fontSize: '32px', color: 'white',"& :hover": { color: "#f77c2b" } }} /></a>
                 </div>
                 </div>
             </div>

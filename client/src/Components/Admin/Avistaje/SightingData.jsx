@@ -109,7 +109,7 @@ export default function SightingData(props) {
 
   return currentItems.length > 0 ? (
     <div className={styles.containerAll}>
-      <h1>Control de Registros de Avistaje</h1>
+      <h1 className={styles.title}>Control de Registros de Avistaje</h1>
       <div className={styles.containerLink}>
         <Link className={styles.link} to='/admin'>
           PANEL DE ADMINISTRADOR

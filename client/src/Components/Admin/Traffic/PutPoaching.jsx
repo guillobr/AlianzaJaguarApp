@@ -111,8 +111,8 @@ export default function PutPoaching(){
 
 
   return (
-    <div  className={styles.containerAll}>
-        <div className={styles.body}>
+    <div className={styles.avistaje}>
+       <div className={styles.body}>
       <div className={styles.container}>
       <div className={styles.title}>Modifica el Registro</div>
 

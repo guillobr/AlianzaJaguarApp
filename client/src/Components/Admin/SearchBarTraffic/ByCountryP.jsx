@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getPoachingCountry } from '../../../actions'
-import styles from '../../../Styles/refreshButton.module.css'
-import style from '../../../Styles/select.module.css'
+import styles from '../../../Styles/contFilters.module.css'
+import SearchIcon from '@mui/icons-material/Search';
 
 const ByCountryP = () => {
   const [input, setInput] = useState('')
@@ -30,10 +30,10 @@ const ByCountryP = () => {
 // }
 
   return (
-    <div>
+    <div className={styles.contFilters}>
      
        <div>
-         <select className={style.select} onChange={(e) => handleChange(e)} defaultValue='default'>
+       <select className={styles.select} onChange={(e) => handleChange(e)} defaultValue='default'>
          <option value='default' disabled>Pais</option>
          <option value='Argentina'>Argentina</option>
          <option value='Bolivia'>Bolivia</option>
@@ -44,7 +44,7 @@ const ByCountryP = () => {
         type='submit'
         onClick={(e) => handleSubmit(e)}
       >
-        Buscar
+        <SearchIcon sx={{ fontSize: '32px', color: 'black', "& :hover": { color: "#ef5350" } }} />
       </button>
     </div>
   )

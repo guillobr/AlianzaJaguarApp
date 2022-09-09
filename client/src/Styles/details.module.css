@@ -1,5 +1,5 @@
 .container {
-    background-color: rgb(255, 255, 255);
+  background-color: #f7f7f7;
       min-height: 170vh;
       display: flex;
       flex-direction: column;
@@ -11,62 +11,83 @@
 
 
   .link {
-    background-color:  rgba(20, 26, 39, 0);
-    border: solid;
-    margin: 2vh;
-    border-color: rgb(20, 26, 39);
-    color: rgb(0, 0, 0);
-    padding: 2.5vh 2.5vh;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-family:Arial, Helvetica, sans-serif;
-    display: inline-block;
-    border-radius: 10px;
-    font-size: 1rem;
+    background-color: #fff;
+  border: 1 solid #a6abb1;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  margin: 2.5vh;
+  padding: 2vh 3vh;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   }
 
   .link:hover{
-    background-color: rgb(20, 26, 39);
-    color:white
+    background-color: #1e293b;
+    color: #fff;
   }
 
   .title{
     margin-bottom: 0.5rem;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-weight: bold;
     font-size: 1.6rem;
     color:rgb(10, 28, 48)
   }
 
   .button {
-    background-color: #efefef00;
-    border: solid;
-    margin: 2vh;
-    border-color: rgb(20, 26, 39);
-    color: rgb(20, 26, 39);
-    padding: 2.5vh 2.5vh;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-family:Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    border: 1 solid #a6abb1;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    margin: 2.5vh;
+    padding: 2vh 3vh;
+    color: #0d172a;
+    cursor: pointer;
     display: inline-block;
-    border-radius: 10px;
-    font-size: 1rem;
+    font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 1rem 1.6rem;
+    text-align: center;
+    text-decoration: none #0d172a solid;
+    text-decoration-thickness: auto;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
     
   }
 
   .button:hover{
-    background-color: rgb(20, 26, 39);
-    color:white;
+    background-color: #1e293b;
+    color: #fff;
     cursor: pointer;
   }
 
   .planilla{
-    border: 3px solid rgb(20, 26, 39);
+   
     width: 50%;
     padding: 2.5vh 2.5vw 2.5vh 2.5vw;
-    border-radius: 10px;
+    border-radius: 1.5rem;
+    border:0.4px solid rgb(107, 102, 102);
+    background-color: #f7f7f7;
+    box-sizing: border-box;
   }
 
   .header{
