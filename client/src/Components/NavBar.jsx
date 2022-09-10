@@ -43,6 +43,9 @@ export default function NavBar(){
           PROYECTOS
         </Link>
         <Link to="/aboutUs"className={styles.link}>
+          DONAR
+        </Link>
+        <Link to="/aboutUs"className={styles.link}>
           CONTACTO
         </Link>
         </div>
